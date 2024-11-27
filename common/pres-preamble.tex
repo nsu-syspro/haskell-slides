@@ -158,12 +158,17 @@
 \let\@@magyar@captionfix\relax
 \makeatother
 
+%% 
+\resetcounteronoverlays{lstnumber}
+
 %%%%%%%%%%%%%%%%%%%
 %% Tikz stuff
 %%%%%%%%%%%%%%%%%%%
 
 \usepackage{tikz}
-\usetikzlibrary{shapes,matrix,calc,positioning,fit,graphs,arrows.meta,backgrounds,decorations.pathreplacing,overlay-beamer-styles}
+\usetikzlibrary{tikzmark,shapes,matrix,calc,positioning,fit,graphs,arrows.meta,backgrounds,decorations.pathreplacing,overlay-beamer-styles}
+
+\usetikzmarklibrary{listings}
 
 \tikzset{>=latex}
 

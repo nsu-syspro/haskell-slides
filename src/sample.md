@@ -31,6 +31,11 @@ def fact(n):
 ::: columns
 :::: {.column width=48%}
 
+```{=latex}
+%% Set color of code formatting to CtpPeach in first column
+\lstset{style=default,basicstyle={\ttfamily\color{CtpPeach}}}
+```
+
 ## First column
 
 - You can use all Markdown features and directly embed `\LaTeX`{=latex}
@@ -122,6 +127,46 @@ def fact(n):
 }
 ```
 
+
+::::
+:::
+
+# Incremental code highlighting {.fragile}
+
+::: columns
+:::: column
+
+```{=latex}
+%% Set color of code formatting to CtpPeach in first column
+\lstset{style=default,basicstyle={\ttfamily\color{CtpPeach}}}
+```
+
+## Beamer macros
+
+- `\onslide<X>` macro can be used inside of code listings
+  to provide custom animations
+- `\setbeamercovered` macro controls how the elements are displayed
+  when they are supposed to be hidden
+- In this example `\setbeamercovered{transparent=40}` makes elements
+  dimmed instead of being hidden completely
+
+::::
+:::: column
+
+## Code sample
+
+```{=latex}
+\setbeamercovered{transparent=40}
+```
+
+```python
+$\onslide<1        >$# Factorial example
+$\onslide<1,2,6    >$def factorial(n):
+$\onslide<1,3,4,7,8>$  if n < 2:
+$\onslide<1,3,7,9  >$    return 1
+$\onslide<1,3,4,7,8>$  else:
+$\onslide<1,3,5,7  >$    return n * factorial(n-1)
+```
 
 ::::
 :::
