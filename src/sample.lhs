@@ -7,9 +7,20 @@ institute: University
 Literate Haskell sample
 =======================
 
+```{=latex}
+\ignore{% Note: This will not be printed
+
+This is a dummy main function so that this file can be compiled
+and run for automatic verification.
+
+> main = pure ()
+
+}% until here
+```
+
 > -- >>> fact 5
 > -- 120
-> -- > >>
+>
 > fact 0 = 1
 > fact n = n * fact (n - 1)
 

@@ -88,6 +88,7 @@ $(PDF_MD_DARK): %-dark.pdf: %.md
 	$(PANDOC) $(PANDOC_ARGS) -t beamer --pdf-engine lualatex --variable darkmode=true $< -o $@
 
 $(PDF_LHS): %.pdf: %.lhs
+	@runhaskell $<
 	$(PANDOC) $(PANDOC_ARGS) -f markdown+lhs -t beamer --pdf-engine lualatex $< -o $@
 
 $(PDF_LHS_DARK): %-dark.pdf: %.lhs
