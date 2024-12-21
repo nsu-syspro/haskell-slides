@@ -10,6 +10,7 @@ urlcolor: CtpMauve
 
 mainfont: DejaVu Sans
 monofont: DejaVu Sans Mono
+monofontoptions: Ligatures=TeXOff
 mathfont: XITS Math
-lang: ru-RU
+lang: en-US
 ---

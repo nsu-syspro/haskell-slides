@@ -21,9 +21,16 @@ COMMON_DIR = common
 # Targets
 ############################
 
-SRC  = $(wildcard $(SRC_DIR)/*.md)
-PDF  = $(SRC:.md=.pdf)
-PDF_DARK = $(PDF:.pdf=-dark.pdf)
+SRC_MD = $(wildcard $(SRC_DIR)/*.md)
+PDF_MD = $(SRC_MD:.md=.pdf)
+PDF_MD_DARK = $(PDF_MD:.pdf=-dark.pdf)
+
+SRC_LHS = $(wildcard $(SRC_DIR)/*.lhs)
+PDF_LHS = $(SRC_LHS:.lhs=.pdf)
+PDF_LHS_DARK = $(PDF_LHS:.pdf=-dark.pdf)
+
+PDF = $(PDF_MD) $(PDF_LHS)
+PDF_DARK = $(PDF_MD_DARK) $(PDF_LHS_DARK)
 
 PDF_PUBLISH = $(PDF:$(SRC_DIR)/%=$(PUBLISH_DIR)/%) $(PDF_DARK:$(SRC_DIR)/%=$(PUBLISH_DIR)/%)
 PDF_NAMES = $(PDF:$(SRC_DIR)/%.pdf=%)
@@ -74,11 +81,18 @@ $(PDF_PUBLISH): $(PUBLISH_DIR)/%.pdf: $(SRC_DIR)/%.pdf
 
 PANDOC_ARGS :=
 
-$(PDF): %.pdf: %.md
+$(PDF_MD): %.pdf: %.md
 	$(PANDOC) $(PANDOC_ARGS) -t beamer --pdf-engine lualatex $< -o $@
 
-$(PDF_DARK): %-dark.pdf: %.md
+$(PDF_MD_DARK): %-dark.pdf: %.md
 	$(PANDOC) $(PANDOC_ARGS) -t beamer --pdf-engine lualatex --variable darkmode=true $< -o $@
+
+$(PDF_LHS): %.pdf: %.lhs
+	$(PANDOC) $(PANDOC_ARGS) -f markdown+lhs -t beamer --pdf-engine lualatex $< -o $@
+
+$(PDF_LHS_DARK): %-dark.pdf: %.lhs
+	$(PANDOC) $(PANDOC_ARGS) -f markdown+lhs -t beamer --pdf-engine lualatex --variable darkmode=true $< -o $@
+	
 	
 ############################
 # Image patterns

@@ -4,9 +4,20 @@ author: Ivan Trepakov
 institute: University
 ---
 
-# Пример слайда с кириллицей
+Literate Haskell sample
+=======================
 
-## Теорема Пифагора
+> -- >>> fact 5
+> -- 120
+> -- > >>
+> fact 0 = 1
+> fact n = n * fact (n - 1)
+
+Пример слайда с кириллицей
+==========================
+
+Теорема Пифагора
+----------------
 
 Основная формулировка содержит алгебраические действия ---
 в прямоугольном треугольнике, длины катетов которого равны 
@@ -15,10 +26,11 @@ $$
 a^2 + b^2 = c^2.
 $$
 
-## Пример программы
+Пример программы
+----------------
 
 ```{.python}
-#$\ $Вычисление$\ $факториала$\ $числа$\ $n
+ # $\ $Вычисление$\ $факториала$\ $числа$\ $n
 def fact(n):
   if (n==1 or n==0):
     return 1
@@ -26,7 +38,8 @@ def fact(n):
     return n * fact(n - 1)
 ```
 
-# Sample slide
+Sample slide
+============
 
 ::: columns
 :::: {.column width=48%}
@@ -36,7 +49,8 @@ def fact(n):
 \lstset{style=default,basicstyle={\ttfamily\color{CtpPeach}}}
 ```
 
-## First column
+First column
+------------
 
 - You can use all Markdown features and directly embed `\LaTeX`{=latex}
 - `\uncover<2->{`{=latex} Beamer allows you to flexibly animate slides with `\uncover<X>` and `\only<X>` `}`{=latex}
@@ -51,7 +65,8 @@ def fact(n):
 ::::
 :::: {.column width=48%}
 
-## \centering Second column (centered)
+\centering Second column (centered)
+-----------------------------------
 
 ```{=latex}
 \only<1-2>{
@@ -131,7 +146,8 @@ def fact(n):
 ::::
 :::
 
-# Incremental code highlighting {.fragile}
+Incremental code highlighting {.fragile}
+========================================
 
 ::: columns
 :::: column
@@ -141,7 +157,8 @@ def fact(n):
 \lstset{style=default,basicstyle={\ttfamily\color{CtpPeach}}}
 ```
 
-## Beamer macros
+Beamer macros
+-------------
 
 - `\onslide<X>` macro can be used inside of code listings
   to provide custom animations
@@ -153,32 +170,35 @@ def fact(n):
 ::::
 :::: column
 
-## Code sample
+Code sample
+-----------
 
 ```{=latex}
 \setbeamercovered{transparent=40}
 ```
 
 ```python
-$\onslide<1        >$# Factorial example
-$\onslide<1,2,6    >$def factorial(n):
-$\onslide<1,3,4,7,8>$  if n < 2:
-$\onslide<1,3,7,9  >$    return 1
-$\onslide<1,3,4,7,8>$  else:
-$\onslide<1,3,5,7  >$    return n * factorial(n-1)
+*'\onslide<1        >'*# Factorial example
+*'\onslide<1,2,6    >'*def factorial(n):
+*'\onslide<1,3,4,7,8>'*  if n < 2:
+*'\onslide<1,3,7,9  >'*    return 1
+*'\onslide<1,3,4,7,8>'*  else:
+*'\onslide<1,3,5,7  >'*    return n * factorial(n-1)
 ```
 
 ::::
 :::
 
-# Conclusion
+Conclusion
+==========
 
 ::: columns
 :::: {.column width=10%}
 ::::
 :::: {.column width=75%}
 
-## \centering Summary
+\centering Summary
+------------------
 
 - Pandoc = Markdown + `\LaTeX`{=latex}
 - Please use this template and never open ~~Google Slides~~ PowerPoint ever again
@@ -188,7 +208,8 @@ $\onslide<1,3,5,7  >$    return n * factorial(n-1)
 ::::
 :::
 
-# {.plain}
+{.plain}
+==========
 
 \vspace{.7\textheight}
 \begin{beamercolorbox}[ht=4ex,dp=2ex,center]{title}
