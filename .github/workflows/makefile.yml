@@ -25,6 +25,8 @@ jobs:
       run: |
         sudo apt-get install inkscape graphviz
 
+    - uses: haskell-actions/setup@v2
+
     - name: Make pdf
       run: make publish
 
