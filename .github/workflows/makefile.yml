@@ -28,7 +28,7 @@ jobs:
     - uses: haskell-actions/setup@v2
 
     - name: Make pdf
-      run: make publish
+      run: make -j publish
 
     - name: Archive published pdfs
       uses: actions/upload-artifact@v4
