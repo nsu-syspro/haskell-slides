@@ -13,4 +13,7 @@ monofont: DejaVu Sans Mono
 monofontoptions: Ligatures=TeXOff
 mathfont: XITS Math
 lang: en-US
+
+author: Ivan Trepakov
+institute: NSU Sys.Pro
 ---
