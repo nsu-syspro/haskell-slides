@@ -1,18 +1,16 @@
-# Presentation template
+# Presentations for NSU Sys.Pro course "Functional Programming"
 
-Sample template to get you started with Pandoc + Beamer presentations.
+Rendered presentations are located in directory [publish](publish):
 
-Fork this repository to bootstrap your presentation.
-
-Source markdown files located at [src](src) directory.
-Result is published at [publish](publish) directory.
-
-Sample: [src/sample.md](src/sample.md)  
-Result: [publish/sample.pdf](publish/sample.pdf)
+- Course introduction ([pdf](publish/intro.pdf?raw=true), [md](src/intro.md))
+- **Functional programming in Haskell**
+  - Introduction to Haskell ([pdf](publish/haskell-intro.pdf?raw=true), [lhs](src/haskell-intro.lhs))
+- **Functional abstractions**
+- **Functional models of computation**
 
 ## Building
 
-Following command builds your presentations into `.pdf`:
+Following command builds presentations into `.pdf`:
 
 ```
 make
