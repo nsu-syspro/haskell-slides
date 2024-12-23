@@ -61,7 +61,7 @@ DOT_PDF = $(DOT_PDF_ROOT) $(DOT_PDF_TARGET)
 all: pdf
 
 publish: $(PDF_PUBLISH)
-pdf:  $(PDF) $(PDF_DARK)
+pdf:  $(PDF) #$(PDF_DARK)
 
 clean: 
 	@echo "Cleaning up..."
