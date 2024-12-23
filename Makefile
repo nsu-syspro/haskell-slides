@@ -32,7 +32,8 @@ PDF_LHS_DARK = $(PDF_LHS:.pdf=-dark.pdf)
 PDF = $(PDF_MD) $(PDF_LHS)
 PDF_DARK = $(PDF_MD_DARK) $(PDF_LHS_DARK)
 
-PDF_PUBLISH = $(PDF:$(SRC_DIR)/%=$(PUBLISH_DIR)/%) $(PDF_DARK:$(SRC_DIR)/%=$(PUBLISH_DIR)/%)
+PDF_PUBLISH = $(PDF:$(SRC_DIR)/%=$(PUBLISH_DIR)/%)
+PDF_PUBLISH_DARK = $(PDF_DARK:$(SRC_DIR)/%=$(PUBLISH_DIR)/%)
 PDF_NAMES = $(PDF:$(SRC_DIR)/%.pdf=%)
 
 PNG_ROOT = $(wildcard $(IMAGES_DIR)/*.png)
@@ -60,7 +61,7 @@ DOT_PDF = $(DOT_PDF_ROOT) $(DOT_PDF_TARGET)
 
 all: pdf
 
-publish: $(PDF_PUBLISH)
+publish: $(PDF_PUBLISH) #$(PDF_PUBLISH_DARK)
 pdf:  $(PDF) #$(PDF_DARK)
 
 clean: 
@@ -71,7 +72,7 @@ clean:
 # Publish patterns
 ############################
 
-$(PDF_PUBLISH): $(PUBLISH_DIR)/%.pdf: $(SRC_DIR)/%.pdf
+$(PDF_PUBLISH) $(PDF_PUBLISH_DARK): $(PUBLISH_DIR)/%.pdf: $(SRC_DIR)/%.pdf
 	@mkdir -p $(@D)
 	cp $< $@
 
