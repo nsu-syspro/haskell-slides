@@ -5,8 +5,8 @@ title: Functional programming
 What is this course about?
 =======================
 
-\centering Themes
------------------
+Themes \centering
+------
 
 - Haskell
 - Lazy evaluation
@@ -21,12 +21,12 @@ What is this course about?
 Organization
 ============
 
-:::::: columns
+::: columns
 
-:::::{.column width=55%}
+:::: {.column width=55%}
 
-\centering Structure
---------------------
+Structure \centering
+---------
 
 - 16 weeks, 2 classes per week
 - 3 modules
@@ -35,30 +35,29 @@ Organization
   - Functional models of computation (4 weeks)
 - ~10 homework assignments (10 points each)
 
-:::::
-:::::{.column width=45%}
+::::
+:::: {.column width=45%}
 
 ```{=latex}
 \begin{minipage}[c][.5\textheight][c]{\linewidth}
 \centering
-\qrcode[height=3.5cm]{https://sys.pro/courses/haskell}
+\qrcode[height=3.5cm]{https://sys.pro/courses/haskell/}
 \vspace{1em}
 ```
-<https://sys.pro/courses/haskell>
+<https://sys.pro/courses/haskell/>
 ```{=latex}
 \end{minipage}
 ```
 
-:::::
+::::
 
-::::::
+:::
 
 Organization
 ============
 
-
-\centering Grading
-------------------
+Grading \centering
+-------
 
 - Final grade is assigned either based on points for homework assignments
   - **A** --- 70+ points in total (6+ in each homework)
