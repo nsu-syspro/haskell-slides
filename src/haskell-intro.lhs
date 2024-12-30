@@ -51,6 +51,228 @@ Statically typed \centering
 ::::
 :::
 
+Installing Haskell toolchain
+============================
+
+::: columns
+:::: {.column width=55%}
+
+Official installer [GHCup](https://www.haskell.org/ghcup/) \centering
+----------------------------------------------------------
+
+- GHC (Glasgow Haskell Compiler)
+- GHCi --- interactive REPL-like environment
+- HLS (Haskell Language Server) --- integration with [editors](https://haskell-language-server.readthedocs.io/en/latest/configuration.html#configuring-your-editor)
+- `cabal` and `stack` --- tools for package management and development
+
+```bash {style=small}
+$ ghc --version
+The Glorious Glasgow Haskell Compilation System,
+version 9.4.8
+```
+
+Note: any version above 9.x.x will be fine
+
+::::
+:::: {.column width=45%}
+
+```{=latex}
+\begin{minipage}[c][.7\textheight][c]{\linewidth}
+\centering
+\qrcode[height=3.5cm]{https://www.haskell.org/ghcup/}
+\vspace{1em}
+```
+<https://www.haskell.org/ghcup/>
+```{=latex}
+\end{minipage}
+```
+
+::::
+:::
+
+GHC interactive
+===============
+
+::: columns
+:::: {.column width=50%}
+
+Using GHCi \centering
+----------
+
+\lstset{style=highlight}
+
+- `:?` --- help
+- `:quit` or `:q` --- quit
+- `:load` or `:l` --- load module
+- `:reload` or `:r` --- reload modules
+- `:info` or `:i` --- information about identifier
+- `:type` or `:t` --- type of expression
+- `:set` / `:unset` --- set or unset options
+
+::::
+:::: {.column width=48%}
+
+```haskell {style=small}
+$ ghci
+GHCi, version 9.4.8:
+https://www.haskell.org/ghc/ :? for help
+ghci> 2
+2
+ghci> True
+True
+ghci> 'a'
+'a'
+ghci> "Hello"
+"Hello"
+ghci> [1,2,3]
+[1,2,3]
+ghci> (12, True)
+(12, True)
+ghic> :q
+Leaving GHCi.
+```
+
+::::
+:::
+
+Evaluating expressions
+======================
+
+::: columns
+:::: {.column width=33%}
+
+Arithmetic \phantom{y}
+----------
+
+```haskell
+ghci> 2 + 3
+5
+ghci> 2 + 3 * 2
+8
+ghci> (-2) * 4
+-8
+ghci> 5.0 / 2.0
+2.5
+ghci> 5 `div` 2
+2
+ghci> 5 `mod` 2
+1
+```
+
+::::
+:::: {.column width=33%}
+
+Booleans and comparisons \phantom{y}
+------------------------
+
+```haskell
+ghci> True && False
+False
+ghci> True || False
+True
+ghci> not True
+False
+ghci> 5 == 2 + 3
+True
+ghci> 5 /= 2 + 3
+False
+ghci> True > False
+True
+```
+
+::::
+:::: {.column width=33%}
+
+Operators are functions \phantom{y}
+-----------------------
+
+```haskell
+ghci> (+) 2 3
+5
+ghci> div 5 2
+2
+ghci> max 5 2
+5
+ghci> 5 `max` 2
+5
+```
+
+::::
+:::
+
+Associativity and precedence {.t}
+============================
+
+::: columns
+:::: {.column width=55%}
+
+Symbolic operators
+------------------
+
+- Any non-alphanumeric identifier is considered operator and *infix* by default
+- But can be made *prefix* by enclosing in parentheses
+- Associativity and precedence must be explicitly specified
+
+Alphanumeric functions
+----------------------
+
+- Any alphanumeric identifier is *prefix* by default
+- But can be made *infix* by enclosing in backticks
+- Function application has highest precedence and always left-associative
+
+::::
+:::: {.column width=40%}
+
+```{=latex}
+\begin{onlyenv}<1>
+```
+
+```haskell {style=small}
+ghci> 2 + (3 * 2)
+8
+ghci> :i (+)
+type Num :: * -> Constraint
+class Num a where
+  (+) :: a -> a -> a
+  ...
+  	-- Defined in `GHC.Num'
+infixl 6 +
+ghci> :i (*)
+type Num :: * -> Constraint
+class Num a where
+  ...
+  (*) :: a -> a -> a
+  ...
+  	-- Defined in `GHC.Num'
+infixl 7 *
+```
+
+```{=latex}
+\end{onlyenv}
+```
+
+```{=latex}
+\begin{onlyenv}<2>
+```
+
+```haskell {style=small}
+ghci> max 2 3 + 2
+4
+ghci> (max 2 3) + 2
+4
+ghci> max 2 (3 + 2)
+5
+ghci> min 4 (max 2 3)
+3
+```
+
+```{=latex}
+\end{onlyenv}
+```
+
+::::
+:::
+
 Basics {.t}
 ======
 
@@ -222,7 +444,7 @@ s = "Hello world! ^1"
 > c1 = 'A'
 > c2 = 'λ'
 > c3 = '🌎'
-
+>
 > -- String (list of characters)
 > s :: String
 > s = "Hello world! 🌎"
