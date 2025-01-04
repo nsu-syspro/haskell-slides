@@ -466,7 +466,7 @@ ghci> zipWith (+) [1..5] [6..10]
 ::::
 :::
 
-Types
+Types {.t}
 =====
 
 ::: columns
@@ -517,11 +517,11 @@ fst :: (a, b) -> a
 ::::
 :::
 
-Function types
-==============
+Types {.t}
+=====
 
 ::: columns
-:::: {.column width=52%}
+:::: {.column width=58%}
 
 Currying \centering
 --------
@@ -540,7 +540,7 @@ Currying \centering
 and then further developed and popularized by *Haskell Curry*
 
 ::::
-:::: {.column width=46%}
+:::: {.column width=41%}
 
 ```haskell {style=small}
 ghci> :t take
@@ -560,8 +560,8 @@ ghci> map (take 2) ["abc", "def"]
 ::::
 :::
 
-Function types
-==============
+Types {.t}
+=====
 
 ::: columns
 :::: {.column width=58%}
@@ -602,196 +602,55 @@ length :: Foldable t => t a -> Int
 ::::
 :::
 
-Basics {.t}
-======
-
-```{=latex}
-\vspace{-2em}
-\begin{minipage}[t][.8\textheight][t]{\linewidth}
-```
-
-. . .
-
-```{=latex}
-\begin{onlyenv}<.-.(4)>
-```
-
-::::: block
-
-Anatomy of declaration \centering
-----------------------
+Types {.t}
+=====
 
 ::: columns
-:::: column
-
-Here is sample Haskell declaration:
-
-> x :: Int   -- Type declaration
-> x = 42     -- Value declaration
-
-\lstset{style=highlight}
-
-`name = expression` is a *binding*  (not assignment)
-
-- `::` reads as "has type"
-- `=`  reads as "defined to be"
-
-::::
-:::: column
-
-. . .
-
-Multiple declarations with the same name are not allowed!  
-Compiler will let us know about it with error:
-```{style=error}
-  Multiple declarations of 'x'
-```
-
-. . .
-
-What does this declaration mean?  
-And what is its type if any?
-
-> y = y + 1
-
-. . .
-
-\vspace{-.8\baselineskip}
-
-> y :: Int
-
-::::
-:::
-
-:::::
-
-```{=latex}
-\end{onlyenv}
-```
-
-. . .
-
-::::: block
+:::: {.column width=58%}
 
 Built-in types \centering
 --------------
 
-. . .
-
-```{=latex}
-\begin{onlyenv}<.-.(2)>
-```
-
-::: columns
-:::: column
-
-> -- Fixed-precision integer
-> i :: Int
-> i = 12
-
-Guaranteed[^haskell2010-int] to be at least $[ - 2^{29}, 2^{29} - 1]$,
-but usually is machine word sized
-
-> -- Actual bounds
-> minInt, maxInt :: Int
-> minInt = minBound
-> maxInt = maxBound
+- Numeric literals are overloaded
+- We can explicitly specify type for any expression
+- `Int`{.haskell} --- fixed-precision integer type
+  - Guaranteed to be at least $[ - 2^{29}, 2^{29} - 1]$[^haskell2010-int],
+    but usually is machine word sized
+- `Integer`{.haskell} --- arbitrary-precision integer type
+  - Implemented internally via GNU Multiple Precision Arithmetic Library (GMP)[^int-gmp]
+- `Float`{.haskell} --- single-precision floating point type
+- `Double`{.haskell} --- double-precision floating point type
+- `Char`{.haskell} --- Unicode code point (character)
+- `()` --- Unit type
 
 [^haskell2010-int]: See [Haskell 2010 Language Report, Section 6.4 Numbers](https://www.haskell.org/onlinereport/haskell2010/haskellch6.html#x13-1350006.4)
 
-::::
-:::: column
-
-. . .
-
-> -- Arbitrary-precision integer
-> n :: Integer
-> n = 2 ^ (2 ^ (2 ^ (2 ^ 2)))
->
-> numDigits :: Int
-> numDigits = length (show n)
->
-> -- >>> numDigits
-> -- 19729
+[^int-gmp]: See [integer-gmp](https://hackage.haskell.org/package/integer-gmp) package
 
 ::::
-:::
+:::: {.column width=41%}
 
-```{=latex}
-\end{onlyenv}
+```haskell {style=small}
+ghci> :t 2
+2 :: Num a => a
+ghci> :t maxBound
+maxBound :: Bounded a => a
+ghci> maxBound
+()
+ghci> maxBound :: Int
+9223372036854775807
+ghci> maxBound :: Char
+'\1114111'
+ghci> 2^100
+1267650600228229401496703205376
+ghci> 2^100 :: Int
+0
+ghci> 2^100 :: Integer
+1267650600228229401496703205376
 ```
-
-. . .
-
-```{=latex}
-\begin{onlyenv}<.-.(2)>
-```
-
-::: columns
-:::: column
-
-> -- Double-precision floatint point
-> d1, d2 :: Double
-> d1 = 3.1415
-> d2 = 6.2831e-4
-
-> -- Boolean
-> b1, b2 :: Bool
-> b1 = True
-> b2 = False
-
-::::
-:::: column
-
-. . .
-
-```{=latex}
-\lstset{
-  style=default,
-  literate=
-    {^1}{{\emoji{earth-americas}}}2
-    {^2}{$\lambda$}1
-}
-```
-
-```haskell
--- Unicode code point (character)
-c1, c2, c3 :: Char
-c1 = 'A'
-c2 = '^2'
-c3 = '^1'
-
--- String (list of characters)
-s :: String
-s = "Hello world! ^1"
-```
-
-\ignore{ % Have to ignore this to properly display unicode on slides
-
-> -- Unicode code point (character)
-> c1, c2, c3 :: Char
-> c1 = 'A'
-> c2 = 'λ'
-> c3 = '🌎'
->
-> -- String (list of characters)
-> s :: String
-> s = "Hello world! 🌎"
-
-}
 
 ::::
 :::
-
-```{=latex}
-\end{onlyenv}
-```
-
-:::::
-
-```{=latex}
-\end{minipage}
-```
 
 {.plain}
 ========
