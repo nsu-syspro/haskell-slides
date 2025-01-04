@@ -388,9 +388,21 @@ Strings are lists \centering
 ::::
 :::: {.column width=40%}
 
+```{=latex}
+\lstset{
+  style=default,
+  literate=
+    {^2}{$\lambda$}1 % 𝜆
+}
+```
+
 ```haskell {style=small}
 ghci> 'a'
 'a'
+ghci> '^2'
+'\120582'
+ghci> putStrLn "^2"
+^2
 ghci> "abc123"
 "abc123"
 ghci> ['a','b','c']
