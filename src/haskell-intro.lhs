@@ -273,6 +273,139 @@ ghci> min 4 (max 2 3)
 ::::
 :::
 
+Lists and tuples {.t}
+================
+
+::: columns
+:::: {.column width=55%}
+
+::::: block
+
+Lists \centering
+-----
+
+- *Homogeneous* linked lists
+  - `[]` --- empty list
+  - `(:)` --- constructor "cons"
+  - `(++)` --- concatenation
+- Enumeration notation `[1..10]`
+
+:::::
+
+```{=latex}
+\begin{uncoverenv}<2>
+```
+
+::::: block
+
+\lstset{style=type}
+
+Tuples \centering
+------
+
+- Cartesian product of several types
+- Except for pairs should not be used anywhere
+  (Haskell provides better ways via custom data structures)
+  - `fst` and `snd` are only for pairs
+
+:::::
+
+```{=latex}
+\end{uncoverenv}
+```
+
+::::
+:::: {.column width=40%}
+
+```{=latex}
+\begin{onlyenv}<1>
+```
+
+```haskell {style=small}
+ghci> [1,2,3]
+[1,2,3]
+ghci> []
+[]
+ghci> 1 : []
+[1]
+ghci> [3,4] ++ [1,2]
+[3,4,1,2]
+ghci> 1 : 2 : 3 : []
+[1,2,3]
+ghci> 1 : 2 : 3 : [] == [1,2,3]
+True
+ghci> [1..5]
+[1,2,3,4,5]
+ghci> [1,3..10]
+[1,3,5,7,9]
+```
+
+```{=latex}
+\end{onlyenv}
+```
+
+```{=latex}
+\begin{onlyenv}<2>
+```
+
+```haskell {style=small}
+ghci> (1,2)
+(1,2)
+ghci> (True,2)
+(True,2)
+ghci> fst (True,2)
+True
+ghci> snd (True,2)
+2
+ghci> (True,[1,2],42)
+(True,[1,2],42)
+```
+
+```{=latex}
+\end{onlyenv}
+```
+
+::::
+:::
+
+Strings
+=======
+
+::: columns
+:::: {.column width=55%}
+
+Strings are lists \centering
+-----------------
+
+- Strings are lists of Unicode characters^[Actually
+  [Unicode code points](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-Char.html)]
+- Characters can be enumerated
+- Strings can be compared lexicographically
+- In real world more efficient implementations are used
+  (see [text](https://hackage.haskell.org/package/text-2.1.2/docs/Data-Text.html)
+  and [bytestring](https://hackage.haskell.org/package/bytestring-0.12.2.0/docs/Data-ByteString.html))
+
+::::
+:::: {.column width=40%}
+
+```haskell {style=small}
+ghci> 'a'
+'a'
+ghci> "abc123"
+"abc123"
+ghci> ['a','b','c']
+"abc"
+ghci> 'a' : "bc" == "abc"
+True
+ghci> ['a'..'f']
+"abcdef"
+ghci> "Haskell" > "C++"
+True
+```
+
+::::
+:::
+
 Basics {.t}
 ======
 
