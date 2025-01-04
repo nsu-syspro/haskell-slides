@@ -442,6 +442,8 @@ ghci> map odd [1..5]
 [True,False,True,False,True]
 ```
 
+. . .
+
 ::::
 :::: {.column width=50%}
 
@@ -459,6 +461,142 @@ ghci> zipWith (\x y -> x + y) [1..5] [6..10]
 [7,9,11,13,15]
 ghci> zipWith (+) [1..5] [6..10]
 [7,9,11,13,15]
+```
+
+::::
+:::
+
+Types
+=====
+
+::: columns
+:::: {.column width=48%}
+
+Inspecting types in GHCi \centering
+------------------------
+
+```haskell {style=small}
+ghci> :t 'a'
+'a' :: Char
+ghci> :t True
+True :: Bool
+ghci> :t [True,False]
+[True,False] :: [Bool]
+ghci> :t (True,'a')
+(True,'a') :: (Bool, Char)
+ghci> :t ('a',True)
+('a',True) :: (Char, Bool)
+ghci> :t not
+not :: Bool -> Bool
+```
+
+- `::`{style=highlight} reads as "has type"
+
+. . .
+
+::::
+:::: {.column width=48%}
+
+Parametric polymorphism \centering
+-----------------------
+
+```haskell {style=small}
+ghci> :t reverse
+reverse :: [a] -> [a]
+ghci> reverse [1,2,3]
+[3,2,1]
+ghci> reverse "Haskell"
+"lleksaH"
+ghci> :t fst
+fst :: (a, b) -> a
+```
+
+- Lower-case identifiers in type signatures are *type variables*
+- Concrete types always start with upper-case letter
+
+::::
+:::
+
+Function types
+==============
+
+::: columns
+:::: {.column width=52%}
+
+Currying \centering
+--------
+
+- Functions with multiple parameters are always *curried*[^curry]
+  - Accept exactly one argument and return another function
+- `->` is *right-associative*,
+  so following type signatures are the same
+  ```haskell {style=small}
+  take :: Int -> [a] -> [a]
+  take :: Int -> ([a] -> [a])
+  ```
+- Allows *partial application* of function to the first argument(s)
+
+[^curry]: This idea was first introduced by *Moses Schönfinkel*
+and then further developed and popularized by *Haskell Curry*
+
+::::
+:::: {.column width=46%}
+
+```haskell {style=small}
+ghci> :t take
+take :: Int -> [a] -> [a]
+ghci> :t take 2
+take 2 :: [a] -> [a]
+ghci> :t take 2 "abc"
+take 2 "abc" :: [Char]
+ghci> :t map
+map :: (a -> b) -> [a] -> [b]
+ghci> :t map (take 2)
+map (take 2) :: [[a]] -> [[a]]
+ghci> map (take 2) ["abc", "def"]
+["ab","de"]
+```
+
+::::
+:::
+
+Function types
+==============
+
+::: columns
+:::: {.column width=58%}
+
+Overloading \centering
+-----------
+
+- Type variables of polymorphic functions can have
+  additional constraints[^type-classes] denoted by `=>`{style=type} clause
+- In that case we say that they are *overloaded*
+- Overloaded functions use some specific API provided by those constraints in their implementation
+- `Ord`{.haskell} means something *comparable*
+- `Num`{.haskell} is any number-like type (`Int`{.haskell}, `Integer`{.haskell}, `Double`{.haskell})
+- `Foldable`{.haskell} is a generalization of any container-like type[^foldable]
+
+[^type-classes]: Such constraints are called *type classes* and we will encounter them a lot during semester
+
+[^foldable]: For now consider it to be simply list type
+
+::::
+:::: {.column width=41%}
+
+```haskell {style=small}
+ghci> :t max
+max :: Ord a => a -> a -> a
+ghci> max "Haskell" "C++"
+"Haskell"
+ghci> max 3 5
+5
+ghci> :t (>)
+(>) :: Ord a => a -> a -> Bool
+ghci> :t (+)
+(+) :: Num a => a -> a -> a
+ghci> :t length
+length :: Foldable t => t a -> Int
 ```
 
 ::::
