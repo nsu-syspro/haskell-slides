@@ -418,6 +418,52 @@ True
 ::::
 :::
 
+More functions
+==============
+
+::: columns
+:::: {.column width=48%}
+
+List functions \centering\phantom{y}
+--------------
+
+```haskell {style=small}
+ghci> length "Haskell"
+7
+ghci> reverse "Haskell"
+"lleksaH"
+ghci> take 2 "Hello" ++ drop 5 "Haskell"
+"Hell"
+ghci> filter even [1..10]
+[2,4,6,8,10]
+ghci> sum (filter even [1..10])
+30
+ghci> map odd [1..5]
+[True,False,True,False,True]
+```
+
+::::
+:::: {.column width=50%}
+
+Anonymous functions^[Also known as *lambda functions*] \centering
+-------------------
+
+```haskell {style=small}
+ghci> (\x -> 3 * x + 2) 2
+8
+ghci> map (\x -> 3 * x + 2) [1..5]
+[5,8,11,14,17]
+ghci> (\x y -> x + y) 2 3
+5
+ghci> zipWith (\x y -> x + y) [1..5] [6..10]
+[7,9,11,13,15]
+ghci> zipWith (+) [1..5] [6..10]
+[7,9,11,13,15]
+```
+
+::::
+:::
+
 Basics {.t}
 ======
 
