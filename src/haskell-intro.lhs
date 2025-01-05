@@ -23,7 +23,7 @@ Functional \phantom{y} \centering
 Pure \phantom{y} \centering
 ----
 
-- Side-effect separation
+- Side effect separation
 - Equational reasoning
 - Simplified parallelism
 
@@ -647,6 +647,54 @@ ghci> 2^100 :: Int
 0
 ghci> 2^100 :: Integer
 1267650600228229401496703205376
+```
+
+::::
+:::
+
+Types {.t}
+=====
+
+::: columns
+:::: {.column width=58%}
+
+Explicit effects \centering
+----------------
+
+- All functions in Haskell are *pure* by default
+- *Impure* functions explicitly marked with `IO`{.haskell} type
+- `IO ()`{.haskell} represents action that does not yield any result
+  but produces some *side effect*
+- Side effects include
+  - Interacting with `stdin`/`stdout`
+  - Mutating global program state
+  - Reading and writing files
+  - Accessing database
+  - Sending or receiving TCP/IP requests
+- `Show`{.haskell} constraint provides conversion from given type
+  to `String`{.haskell} via `show`{.haskell} function
+- Under the hood GHCi uses `print`{.haskell} to show expressions on screen
+
+::::
+:::: {.column width=41%}
+
+```haskell {style=small}
+ghci> :t putStrLn
+putStrLn :: String -> IO ()
+ghci> putStrLn "Hello"
+Hello
+ghci> "Hello"
+"Hello"
+ghci> :t print
+print :: Show a => a -> IO ()
+ghci> print "Hello"
+"Hello"
+ghci> show "Hello"
+"\"Hello\""
+ghci> print [1,2,3]
+[1,2,3]
+ghci> show [1,2,3]
+"[1,2,3]"
 ```
 
 ::::
