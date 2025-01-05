@@ -71,7 +71,7 @@ The Glorious Glasgow Haskell Compilation System,
 version 9.4.8
 ```
 
-Note: any version above 9.x.x will be fine
+Note: any version 9.x.x or above will be fine
 
 ::::
 :::: {.column width=45%}
