@@ -652,6 +652,50 @@ ghci> 2^100 :: Integer
 ::::
 :::
 
+Program structure
+=================
+
+::: columns
+:::: {.column width=50%}
+
+Modules \centering
+-------
+
+- Haskell program consists of *modules*
+- Each module corresponds to single `.hs` or `.lhs`
+  ([literate Haskell](https://wiki.haskell.org/index.php?title=Literate_programming)) file
+- Each module contains *declarations*:
+  - Function declarations (*bindings*)
+  - Type signatures
+  - Fixity declarations (associativity and precedence of operators)
+  - *Type declarations*
+  - And many others...
+- Order of declarations does not matter
+
+::::
+:::: {.column width=50%}
+
+Prelude \centering
+-------
+
+- Prelude is an implicitly imported module containing standard function and type declarations
+- Most of the functions we have seen so far come from Prelude module
+- Very little is actually built into Haskell language itself
+
+```{=latex}
+\begin{minipage}[c][.4\textheight][c]{\linewidth}
+\centering
+\qrcode[height=1.5cm]{https://hackage.haskell.org/package/base-4.21.0.0/docs/Prelude.html}
+\vspace{1em}
+```
+<https://hackage.haskell.org/package/base-4.21.0.0/docs/Prelude.html>
+```{=latex}
+\end{minipage}
+```
+
+::::
+:::
+
 {.plain}
 ========
 
