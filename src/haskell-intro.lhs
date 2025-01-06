@@ -744,6 +744,81 @@ Prelude \centering
 ::::
 :::
 
+Factorial
+=========
+
+$n! = 1 \cdot 2 \cdot ... \cdot n$ \centering
+---------
+
+. . .
+
+::: columns
+:::: {.column width=48%}
+
+\vspace{1.5em}
+$$
+\begin{aligned}
+\uncover<2->{
+F_1(n) &= \begin{cases}
+  1 & \text{$n = 0$} \\
+  n \cdot F_1(n - 1) & \text{otherwise}
+\end{cases} \\[2.5em]
+}
+\uncover<4->{
+F_2(0) &= 1 \\
+F_2(n) &= n \cdot F_2(n - 1) \\[2.5em]
+}
+\uncover<6->{
+F_3(n) &= \prod_{x = 1..n} x
+}
+\end{aligned}
+$$
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=48%}
+
+```{=latex}
+\begin{uncoverenv}<3->
+```
+
+> fact1 :: Integer -> Integer
+> fact1 n
+>   | n == 0    = 1
+>   | otherwise = n * fact1 (n - 1)
+
+```{=latex}
+\end{uncoverenv}
+```
+
+```{=latex}
+\begin{uncoverenv}<5->
+```
+
+> fact2 :: Integer -> Integer
+> fact2 0 = 1
+> fact2 n = n * fact2 (n - 1)
+
+```{=latex}
+\end{uncoverenv}
+```
+
+```{=latex}
+\begin{uncoverenv}<7->
+```
+
+> fact3 :: Integer -> Integer
+> fact3 n = product [1..n]
+
+```{=latex}
+\end{uncoverenv}
+```
+
+::::
+:::
+
 {.plain}
 ========
 
