@@ -744,11 +744,11 @@ Prelude \centering
 ::::
 :::
 
-Factorial
+Factorial {.t}
 =========
 
 $n! = 1 \cdot 2 \cdot ... \cdot n$ \centering
----------
+----------------------------------
 
 . . .
 
@@ -818,6 +818,11 @@ $$
 
 ::::
 :::
+
+<!-- Keep only footnote without its mark -->
+`\only<8->{\sbox0{\footnote<8->[frame]{`{=latex}
+Checkout more factorials in ["The Evolution of a Haskell Programmer"](https://people.willamette.edu/~fruehr/haskell/evolution.html)
+`}}}`{=latex}
 
 {.plain}
 ========
