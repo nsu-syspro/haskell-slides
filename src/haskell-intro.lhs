@@ -6,47 +6,38 @@ subtitle: Functional programming in Haskell
 What is Haskell?
 ================
 
-. . .
-
 ::: columns
-:::: {.column width=50%}
+:::: {.column width=58%}
 
-Functional \phantom{y} \centering
-----------
+```{=latex}
+\begin{minipage}[c][.5\textheight][c]{\linewidth}
+\centering
+```
 
-- Functions as first-class citizens
-- Higher order functions
-- Declarative style
+- Pure, lazy and functional programming language
+- Designed by a committee of researchers
+- Haskell 1.0 Report released 1990
+- [Haskell 98 Language Report](https://www.haskell.org/onlinereport/)
+- [Haskell 2010 Language Report](https://www.haskell.org/onlinereport/haskell2010/)
+  (*current standard*)
+- Actively developed on top of standard via
+  extensions to Glasgow Haskell Compiler (GHC)
 
-. . .
-
-Pure \phantom{y} \centering
-----
-
-- Side effect separation
-- Equational reasoning
-- Simplified parallelism
-
-. . .
+```{=latex}
+\end{minipage}
+```
 
 ::::
-:::: {.column width=50%}
+:::: {.column width=42%}
 
-Lazy \centering
-----
-
-- Infinite data structures
-- Compositional programming style
-- Tricky to evaluate complexity
-
-. . .
-
-Statically typed \centering
-----------------
-
-- "If a program compiles, it probably works"
-- Expressive type system
-- Type inference
+```{=latex}
+\begin{minipage}[c][.5\textheight][c]{\linewidth}
+\centering
+```
+![](images/Haskell-Logo.pdf){width=80%}
+```{=latex}
+\end{minipage}
+```
 
 ::::
 :::

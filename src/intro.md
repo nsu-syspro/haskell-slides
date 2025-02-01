@@ -5,8 +5,13 @@ title: Functional programming
 What is this course about?
 =======================
 
-Themes \centering
-------
+::: columns
+:::: {.column width=58%}
+
+```{=latex}
+\begin{minipage}[c][.5\textheight][c]{\linewidth}
+\centering
+```
 
 - Haskell
 - Lazy evaluation
@@ -17,6 +22,25 @@ Themes \centering
 - Combinatory logic
 - Compilation and execution of functional languages
 - GHC internals
+
+```{=latex}
+\end{minipage}
+```
+
+::::
+:::: {.column width=42%}
+
+```{=latex}
+\begin{minipage}[c][.5\textheight][c]{\linewidth}
+\centering
+```
+![](images/Haskell-Logo.pdf){width=80%}
+```{=latex}
+\end{minipage}
+```
+
+::::
+:::
 
 Organization
 ============
