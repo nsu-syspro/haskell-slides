@@ -30,7 +30,7 @@ Structure \centering
 
 - 16 weeks, 2 classes per week
 - 3 modules
-  - Introduction to Haskell (6 weeks)
+  - Functional programming in Haskell (6 weeks)
   - Functional abstractions (6 weeks)
   - Functional models of computation (4 weeks)
 - ~10 homework assignments (10 points each)
@@ -60,12 +60,12 @@ Grading \centering
 -------
 
 - Final grade is assigned either based on points for homework assignments
-  - **A** --- 70+ points in total (6+ in each homework)
-  - **B** --- 60+ points in total (3+ in each homework)
-  - **C** --- 50+ points in total
-- Or by passing grading theory test consisting of
+  - **A** --- 8+ in each homework
+  - **B** --- 7+ in each homework
+  - **C** --- 6+ in each homework
+- Or by passing final theory test comprising
   - 2 random questions from different modules
-  - 1 random exercise from homework assignments
+  - 1 practical exercise similar to tasks from homework assignments
 - Students wishing to improve grade based on homework points
   may pass theory test instead
   - In that case their grade from theory test will be the final grade
