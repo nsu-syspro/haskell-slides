@@ -222,7 +222,7 @@ Alphanumeric functions
 ```
 
 ```haskell {style=small}
-ghci> 2 + (3 * 2)
+ghci> 2 + 3 * 2
 8
 ghci> :i (+)
 type Num :: * -> Constraint
