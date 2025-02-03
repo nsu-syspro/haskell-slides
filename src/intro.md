@@ -14,10 +14,11 @@ What is this course about?
 ```
 
 - Haskell
+- Pure functions
 - Lazy evaluation
 - Wholemeal programming
 - Using types to your advantage
-- Abstraction
+- Functional abstractions
 - $\lambda$-calculus
 - Combinatory logic
 - Compilation and execution of functional languages
