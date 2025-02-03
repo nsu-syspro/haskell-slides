@@ -298,8 +298,9 @@ Tuples \centering
 ------
 
 - Cartesian product of several types
-- Except for pairs should not be used anywhere
-  (Haskell provides better ways via custom data structures)
+- Except for pairs should not be used anywhere`\only<2>{\footnote<2>{`{=latex}
+  Haskell provides better ways via custom data structures
+  `}}`{=latex}
   - `fst` and `snd` are only for pairs
 
 :::::
