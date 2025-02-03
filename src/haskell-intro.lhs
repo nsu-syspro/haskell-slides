@@ -22,6 +22,9 @@ What is Haskell?
   (*current standard*)
 - Actively developed on top of standard via
   extensions to Glasgow Haskell Compiler (GHC)
+- Most changes in GHC are accompanied by [research paper](https://wiki.haskell.org/index.php?title=Research_papers)
+  - Compiler and language research platform
+  - Production-ready compiler and runtime
 
 ```{=latex}
 \end{minipage}
