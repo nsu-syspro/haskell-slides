@@ -739,6 +739,188 @@ Prelude \centering
 ::::
 :::
 
+Functions {.t}
+=========
+
+::: columns
+:::: {.column width=48%}
+
+Bindings \centering
+--------
+
+
+```{=latex}
+\onslide<2->
+```
+
+- Type signature
+  - Optional but recommended
+  - Improves type error messages
+- Zero or more arguments
+  - Binding without arguments is *constant*
+
+```{=latex}
+\onslide<3->
+```
+
+- `if p then x else y`{.haskell}
+
+```{=latex}
+\onslide<4->
+```
+
+- Guards
+  - `\onslide<5->`{=latex} `otherwise = True`{.haskell}
+
+```{=latex}
+\onslide<6->
+```
+
+- Recursion
+
+```{=latex}
+\onslide<7->
+```
+
+- Pattern matching
+  - Literals
+  - `\onslide<9->`{=latex} *Constructors*
+
+```{=latex}
+\onslide
+```
+
+::::
+:::: {.column width=52%}
+
+```{=latex}
+\begin{minipage}[c][.8\textheight][t]{\linewidth}
+\centering
+```
+
+:::::: block
+
+Examples \centering
+--------
+
+```{=latex}
+\begin{onlyenv}<2>
+```
+
+> e :: Double
+> e = exp 1
+
+> square :: Int -> Int
+> square x = x * x
+
+> squareSum :: Int -> Int -> Int
+> squareSum x y = square (x + y)
+
+> sumSquare :: Int -> Int -> Int
+> sumSquare x y = square x + square y
+
+```{=latex}
+\end{onlyenv}
+```
+
+```{=latex}
+\begin{onlyenv}<3-5>
+```
+
+> max' :: Int -> Int -> Int
+> max' x y = if x > y then x else y
+
+```{=latex}
+\begin{onlyenv}<4-5>
+```
+
+> max'' :: Int -> Int -> Int
+> max'' x y
+>   | x > y     = x
+>   | otherwise = y
+
+```{=latex}
+\end{onlyenv}
+```
+
+```{=latex}
+\end{onlyenv}
+```
+
+```{=latex}
+\begin{onlyenv}<6-7>
+```
+
+> fib :: Integer -> Integer
+> fib n
+>   | n == 0    = 0
+>   | n == 1    = 1
+>   | otherwise = fib (n - 1) + fib (n - 2)
+
+```{=latex}
+\begin{onlyenv}<7>
+```
+
+> fib' :: Integer -> Integer
+> fib' 0 = 0
+> fib' 1 = 1
+> fib' n = fib' (n - 1) + fib' (n - 2)
+
+```{=latex}
+\end{onlyenv}
+```
+
+```{=latex}
+\end{onlyenv}
+```
+
+```{=latex}
+\begin{onlyenv}<8-10>
+```
+
+> rating :: String -> Int
+> rating "Haskell" = 10
+> rating "Scala"   = 8
+> rating "C"       = 6
+> rating "C++"     = 2
+> rating _         = 0
+
+```{=latex}
+\begin{onlyenv}<9-10>
+```
+
+> sumPair :: (Int, Int) -> Int
+> sumPair (x, y) = x + y
+
+```{=latex}
+\begin{onlyenv}<10>
+```
+
+> isEmpty :: [a] -> Bool
+> isEmpty []     = True
+> isEmpty (x:xs) = False
+
+```{=latex}
+\end{onlyenv}
+```
+
+```{=latex}
+\end{onlyenv}
+```
+
+```{=latex}
+\end{onlyenv}
+```
+
+::::::
+
+```{=latex}
+\end{minipage}
+```
+
+::::
+:::
+
 Factorial {.t}
 =========
 
@@ -818,6 +1000,30 @@ $$
 `\only<8->{\sbox0{\footnote<8->[frame]{`{=latex}
 Checkout more factorials in ["The Evolution of a Haskell Programmer"](https://people.willamette.edu/~fruehr/haskell/evolution.html)
 `}}}`{=latex}
+
+Exercise {.t}
+========
+
+Sum consecutive pairs of elements in the list \centering
+---------------------------------------------
+
+. . .
+
+> -- >>> sumPairwise []
+> -- []
+> -- >>> sumPairwise [1]
+> -- [1]
+> -- >>> sumPairwise [1,2]
+> -- [3]
+> -- >>> sumPairwise [1,2,3]
+> -- [3,3]
+
+. . .
+
+> sumPairwise :: [Int] -> [Int]
+> sumPairwise []       = []
+> sumPairwise [x]      = [x]
+> sumPairwise (x:y:xs) = (x + y) : sumPairwise xs
 
 {.plain}
 ========
