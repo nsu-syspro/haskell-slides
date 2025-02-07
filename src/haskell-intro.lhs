@@ -1001,6 +1001,60 @@ $$
 Checkout more factorials in ["The Evolution of a Haskell Programmer"](https://people.willamette.edu/~fruehr/haskell/evolution.html)
 `}}}`{=latex}
 
+Collatz sequence {.t}
+================
+
+. . .
+
+::: columns
+:::: {.column width=44%}
+
+Collatz function \centering
+----------------
+
+$$
+f(n) = \begin{cases}
+  n / 2  & \text{if } n \equiv 0 {\pmod{2}} \\
+  3n + 1 & \text{if } n \equiv 1 {\pmod{2}}
+\end{cases}
+$$
+
+. . .
+
+Collatz conjecture[^collatz] \centering
+------------------
+
+[^collatz]: Wikipedia: [Collatz conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture)
+
+A sequence obtained by consecutive application of
+$f$ to *any* positive number eventually reaches number 1.
+
+$$
+n, f(n), f(f(n)), ..., 1
+$$
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=52%}
+
+. . .
+
+> collatz :: Integer -> Integer
+> collatz n
+>   | even n    = n `div` 2
+>   | otherwise = 3 * n + 1
+
+. . .
+
+> collatzSeq :: Integer -> [Integer]
+> collatzSeq 1 = [1]
+> collatzSeq n = n : collatzSeq (collatz n)
+
+::::
+:::
+
 Exercise {.t}
 ========
 
