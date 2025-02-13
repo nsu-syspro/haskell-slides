@@ -55,13 +55,13 @@ Quiz 1 {.t}
 ::: columns
 :::: {.column width=50%}
 
-Evaluate expression \centering
+Guess type signature \centering
 -------------------
 
 ```haskell
 (++) [True]
 
-zip [0..] "Test"
+zip [0..]
 
 map filter
 ```
