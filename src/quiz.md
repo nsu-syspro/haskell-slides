@@ -45,7 +45,7 @@ map (take 2)
 ::::
 :::
 
-Quiz 1 {.t}
+Quiz 2 {.t}
 ======
 
 ```{=latex}
@@ -83,6 +83,49 @@ foo = zipWith (:)
 f = f f
 
 y g = g (y g)
+```
+
+::::
+:::
+
+Quiz 3 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=50%}
+
+Guess type signature \centering
+-------------------
+
+```haskell
+z x y = zip x (concat y)
+
+concatMap f x = concat (map f x)
+
+f = 0 : 1 : zipWith (+) f (tail f)
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=46%}
+
+Guess the function(s) \centering
+---------------------
+
+```haskell
+_ :: a -> a
+
+_ :: a -> b
+
+_ :: a -> [a] -> [a]
+
+_ :: [a] -> Maybe (a, [a])
 ```
 
 ::::
