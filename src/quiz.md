@@ -131,6 +131,51 @@ _ :: [a] -> Maybe (a, [a])
 ::::
 :::
 
+Quiz 4 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=50%}
+
+Guess the function(s) \centering
+---------------------
+
+```haskell
+_ :: a -> b -> a
+
+_ :: (a -> b -> c) -> b -> a -> c
+
+_ :: ((a, b) -> c) -> a -> b -> c
+
+_ :: (a -> b -> c) -> (a, b) -> c
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=46%}
+
+Guess the function(s) \centering
+---------------------
+
+```haskell
+_ :: (a -> b) -> a -> b
+
+_ :: (b -> c) -> (a -> b) -> a -> c
+
+_ :: (b -> a -> b) -> b -> [a] -> b
+
+_ :: (a -> b -> b) -> b -> [a] -> b
+```
+
+::::
+:::
+
 {.plain}
 ==========
 
