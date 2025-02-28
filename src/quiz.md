@@ -176,6 +176,49 @@ _ :: (a -> b -> b) -> b -> [a] -> b
 ::::
 :::
 
+Quiz 5 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=50%}
+
+Evaluate expression \centering
+-------------------
+
+```haskell
+(2^) . (3+) $ 4
+
+map ($2) [(*2), (^3), (1+)]
+
+(++ "!") . reverse $ "abc"
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=46%}
+
+Guess type signature \centering
+--------------------
+
+```haskell
+flip const
+
+const undefined
+
+foldr (:) []
+
+((filter even .) .)
+```
+
+::::
+:::
+
 {.plain}
 ==========
 
