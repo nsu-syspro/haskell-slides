@@ -219,6 +219,51 @@ foldr (:) []
 ::::
 :::
 
+Quiz 6 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=50%}
+
+Guess type signature \centering
+--------------------
+
+```haskell
+filter (const True)
+
+foldl' (flip (:)) []
+
+map (,)
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=46%}
+
+How many *total* functions have given signature? \centering
+------------------------------------------------
+
+```haskell
+_ :: a -> a -> a
+
+_ :: (a, a) -> (a, a)
+
+_ :: a -> Maybe a
+
+_ :: a -> Maybe b
+
+_ :: (a -> Maybe b) -> [a] -> [b]
+```
+
+::::
+:::
+
 {.plain}
 ==========
 
