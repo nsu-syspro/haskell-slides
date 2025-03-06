@@ -246,14 +246,53 @@ map (,)
 \hfill
 :::: {.column width=46%}
 
-How many *total* functions have given signature? \centering
-------------------------------------------------
+How many distinguishable *total* functions? \centering
+-------------------------------------------
 
 ```haskell
-_ :: a -> a -> a
+_ :: a -> a
 
 _ :: (a, a) -> (a, a)
 
+_ :: a -> a -> Bool
+
+_ :: Eq a => a -> a -> Bool
+```
+
+::::
+:::
+
+Quiz 7 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=50%}
+
+How many distinguishable *total* functions? \centering
+-------------------------------------------
+
+```haskell
+_ :: a -> b -> a
+
+_ :: a -> a -> a
+
+_ :: (b -> c) -> (a -> b) -> (a -> c)
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=46%}
+
+How many distinguishable *total* functions? \centering
+-------------------------------------------
+
+```haskell
 _ :: a -> Maybe a
 
 _ :: a -> Maybe b
