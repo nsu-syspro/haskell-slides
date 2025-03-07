@@ -10,7 +10,7 @@ Quiz 1 {.t}
 ```
 
 ::: columns
-:::: {.column width=50%}
+:::: {.column width=48%}
 
 Evaluate expression \centering
 -------------------
@@ -29,7 +29,7 @@ map (\x -> x * 2) [1,3..10] ++ [100,1000]
 \hfill
 \vrule
 \hfill
-:::: {.column width=46%}
+:::: {.column width=48%}
 
 Guess type signature \centering
 --------------------
@@ -53,7 +53,7 @@ Quiz 2 {.t}
 ```
 
 ::: columns
-:::: {.column width=50%}
+:::: {.column width=48%}
 
 Guess type signature \centering
 -------------------
@@ -70,7 +70,7 @@ map filter
 \hfill
 \vrule
 \hfill
-:::: {.column width=46%}
+:::: {.column width=48%}
 
 Guess type signature \centering
 --------------------
@@ -96,7 +96,7 @@ Quiz 3 {.t}
 ```
 
 ::: columns
-:::: {.column width=50%}
+:::: {.column width=48%}
 
 Guess type signature \centering
 -------------------
@@ -113,7 +113,7 @@ f = 0 : 1 : zipWith (+) f (tail f)
 \hfill
 \vrule
 \hfill
-:::: {.column width=46%}
+:::: {.column width=48%}
 
 Guess the function(s) \centering
 ---------------------
@@ -139,7 +139,7 @@ Quiz 4 {.t}
 ```
 
 ::: columns
-:::: {.column width=50%}
+:::: {.column width=48%}
 
 Guess the function(s) \centering
 ---------------------
@@ -158,7 +158,7 @@ _ :: (a -> b -> c) -> (a, b) -> c
 \hfill
 \vrule
 \hfill
-:::: {.column width=46%}
+:::: {.column width=48%}
 
 Guess the function(s) \centering
 ---------------------
@@ -184,7 +184,7 @@ Quiz 5 {.t}
 ```
 
 ::: columns
-:::: {.column width=50%}
+:::: {.column width=48%}
 
 Evaluate expression \centering
 -------------------
@@ -201,7 +201,7 @@ map ($2) [(*2), (^3), (1+)]
 \hfill
 \vrule
 \hfill
-:::: {.column width=46%}
+:::: {.column width=48%}
 
 Guess type signature \centering
 --------------------
@@ -227,7 +227,7 @@ Quiz 6 {.t}
 ```
 
 ::: columns
-:::: {.column width=50%}
+:::: {.column width=48%}
 
 Guess type signature \centering
 --------------------
@@ -244,7 +244,7 @@ map (,)
 \hfill
 \vrule
 \hfill
-:::: {.column width=46%}
+:::: {.column width=48%}
 
 How many distinguishable *total* functions? \centering
 -------------------------------------------
@@ -270,7 +270,7 @@ Quiz 7 {.t}
 ```
 
 ::: columns
-:::: {.column width=50%}
+:::: {.column width=48%}
 
 How many distinguishable *total* functions? \centering
 -------------------------------------------
@@ -287,7 +287,7 @@ _ :: (b -> c) -> (a -> b) -> (a -> c)
 \hfill
 \vrule
 \hfill
-:::: {.column width=46%}
+:::: {.column width=48%}
 
 How many distinguishable *total* functions? \centering
 -------------------------------------------
