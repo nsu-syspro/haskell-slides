@@ -183,9 +183,9 @@ Haskell
 ----------------
 
 > class Semigroup a where
->   (<>) :: a -> a -> a
+>   (<>)    :: a -> a -> a
 >   sconcat :: NonEmpty a -> a
->   stimes :: Integral b => b -> a -> a
+>   stimes  :: Integral b => b -> a -> a
 
 Minimal complete definition \centering
 ---------------------------
@@ -203,7 +203,7 @@ Minimal complete definition \centering
 ----------------
 
 > class Semigroup a => Monoid a where
->   mempty :: a
+>   mempty  :: a
 >   mappend :: a -> a -> a
 >   mconcat :: [a] -> a
 
