@@ -303,6 +303,47 @@ _ :: (a -> Maybe b) -> [a] -> [b]
 ::::
 :::
 
+Quiz 8 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=48%}
+
+How many distinguishable *total* functions? \centering
+-------------------------------------------
+
+```haskell
+_ :: Bool -> Bool -> Bool
+
+_ :: Bool -> a -> a
+
+_ :: [a] -> a
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=48%}
+
+Guess the function(s) \centering
+---------------------
+
+```haskell
+_ :: (a -> a -> Bool) -> [a] -> [[a]]
+
+_ :: (a -> a -> Ordering) -> [a] -> [a]
+
+_ :: Ord a => (b -> a) -> b -> b -> Ordering
+```
+
+::::
+:::
+
 {.plain}
 ==========
 
