@@ -377,11 +377,11 @@ Guess the Semigroup(s) \centering
 -------------------
 
 ```haskell
-instance Semigroup Bool where
-  (<>) :: Bool -> Bool -> Bool
-
 instance Semigroup (Maybe a) where
   (<>) :: Maybe a -> Maybe a -> Maybe a
+
+instance Monoid a => Semigroup a where
+  (<>) :: a -> a -> a
 
 instance Semigroup a where
   (<>) :: a -> a -> a
