@@ -344,6 +344,52 @@ _ :: Ord a => (b -> a) -> b -> b -> Ordering
 ::::
 :::
 
+Quiz 9 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=48%}
+
+Evaluate expression \centering
+-------------------
+
+```haskell
+foldr (++) "S" ["foo", "bar"]
+
+foldl (++) "S" ["foo", "bar"]
+
+foldr ($) "S" [(++ "foo"), (++ "bar")]
+
+mconcat [(++ "foo"), (++ "bar")] "S"
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=48%}
+
+Guess the Semigroup(s) \centering
+-------------------
+
+```haskell
+instance Semigroup Bool where
+  (<>) :: Bool -> Bool -> Bool
+
+instance Semigroup (Maybe a) where
+  (<>) :: Maybe a -> Maybe a -> Maybe a
+
+instance Semigroup a where
+  (<>) :: a -> a -> a
+```
+
+::::
+:::
+
 {.plain}
 ==========
 
