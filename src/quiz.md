@@ -390,6 +390,95 @@ instance Semigroup a where
 ::::
 :::
 
+Quiz 10 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=48%}
+
+Guess the kind \centering
+--------------
+
+```haskell
+data A a b = A a b
+
+data B a b = B (a b)
+
+data C a b = C (b (a b))
+
+data D a b = D (a (b a))
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=48%}
+
+Guess `foldMap` Monoid \centering
+----------------------
+
+```haskell
+product :: (Foldable t, Num a) =>
+  t a -> a
+
+any :: Foldable t =>
+  (a -> Bool) -> t a -> Bool
+
+elem :: (Foldable t, Eq a) =>
+  a -> t a -> Bool
+```
+
+::::
+:::
+
+<!--
+
+Quiz 11 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=48%}
+
+Guess the kind \centering
+--------------
+
+```haskell
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=48%}
+
+Guess `foldMap` Monoid \centering
+----------------------
+
+```haskell
+all :: Foldable t =>
+  (a -> Bool) -> t a -> Bool
+
+safeMaximum :: (Foldable t, Ord a) =>
+  t a -> Maybe a
+
+find :: Foldable t =>
+  (a -> Bool) -> t a -> Maybe a
+```
+
+::::
+:::
+
+-->
+
 {.plain}
 ==========
 
