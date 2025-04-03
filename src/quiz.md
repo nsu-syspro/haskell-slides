@@ -380,11 +380,13 @@ Guess the Semigroup(s) \centering
 instance Semigroup (Maybe a) where
   (<>) :: Maybe a -> Maybe a -> Maybe a
 
-instance Monoid a => Semigroup a where
-  (<>) :: a -> a -> a
+newtype X a = X a
+instance Semigroup a => Semigroup (X a) where
+  (<>) :: X a -> X a -> X a
 
-instance Semigroup a where
-  (<>) :: a -> a -> a
+newtype Y a = Y a
+instance Semigroup (Y a) where
+  (<>) :: Y a -> Y a -> Y a
 ```
 
 ::::
@@ -419,18 +421,18 @@ data D a b = D (a (b a))
 \hfill
 :::: {.column width=48%}
 
-Guess `foldMap` Monoid \centering
-----------------------
+Guess `foldMap`{style=default} Monoid \centering
+-------------------------------------
 
 ```haskell
 product :: (Foldable t, Num a) =>
-  t a -> a
+                           t a -> a
 
 any :: Foldable t =>
-  (a -> Bool) -> t a -> Bool
+            (a -> Bool) -> t a -> Bool
 
 elem :: (Foldable t, Eq a) =>
-  a -> t a -> Bool
+                      a -> t a -> Bool
 ```
 
 ::::
@@ -460,8 +462,8 @@ Guess the kind \centering
 \hfill
 :::: {.column width=48%}
 
-Guess `foldMap` Monoid \centering
-----------------------
+Guess `foldMap`{style=default} Monoid \centering
+-------------------------------------
 
 ```haskell
 all :: Foldable t =>
