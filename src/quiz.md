@@ -438,8 +438,6 @@ elem :: (Foldable t, Eq a) =>
 ::::
 :::
 
-<!--
-
 Quiz 11 {.t}
 ======
 
@@ -450,10 +448,18 @@ Quiz 11 {.t}
 ::: columns
 :::: {.column width=48%}
 
-Guess the kind \centering
---------------
+Guess `foldMap`{style=default} Monoid \centering
+-------------------------------------
 
 ```haskell
+find :: Foldable t =>
+             (a -> Bool) -> t a -> Maybe a
+
+safeMaximum :: (Foldable t, Ord a) =>
+                            t a -> Maybe a
+
+safeMaximumBy :: Foldable t =>
+    (a -> a -> Ordering) -> t a -> Maybe a
 ```
 
 ::::
@@ -462,24 +468,19 @@ Guess the kind \centering
 \hfill
 :::: {.column width=48%}
 
-Guess `foldMap`{style=default} Monoid \centering
--------------------------------------
+Guess type signature \centering
+--------------------
 
 ```haskell
-all :: Foldable t =>
-  (a -> Bool) -> t a -> Bool
+map (Just .) [even, odd]
 
-safeMaximum :: (Foldable t, Ord a) =>
-  t a -> Maybe a
+map (const) [even, odd]
 
-find :: Foldable t =>
-  (a -> Bool) -> t a -> Maybe a
+map (const .) [even, odd]
 ```
 
 ::::
 :::
-
--->
 
 {.plain}
 ==========
