@@ -482,6 +482,47 @@ map (const .) [even, odd]
 ::::
 :::
 
+Quiz 12 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=48%}
+
+Guess the function(s) \centering
+---------------------
+
+```haskell
+_ :: Foldable t => (a -> [b]) -> t a -> [b]
+
+_ :: Foldable t => t Bool -> Bool
+
+_ :: Foldable t => (a -> Bool) -> t a -> [a]
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=48%}
+
+Guess type signature \centering
+-------------------
+
+```haskell
+foldMap . foldMap
+
+foldMap . (flip foldMap)
+
+foldMap . map
+```
+
+::::
+:::
+
 {.plain}
 ==========
 
