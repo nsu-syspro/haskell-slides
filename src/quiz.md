@@ -523,6 +523,47 @@ foldMap . map
 ::::
 :::
 
+Quiz 13 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=48%}
+
+Guess type signature \centering
+-------------------
+
+```haskell
+liftA2 (==)
+
+liftA2 (take)
+
+liftA2 (.)
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=48%}
+
+Guess type signature \centering
+-------------------
+
+```haskell
+liftA2 ($)
+
+liftA2 (fmap)
+
+liftA2 (liftA2)
+```
+
+::::
+:::
+
 {.plain}
 ==========
 
