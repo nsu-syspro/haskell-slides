@@ -564,6 +564,49 @@ liftA2 (liftA2)
 ::::
 :::
 
+Quiz 14 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=48%}
+
+Guess type signature \centering
+-------------------
+
+```haskell
+liftA
+
+pure . pure
+
+pure pure
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=48%}
+
+Guess the function(s) \centering
+---------------------
+
+```haskell
+_ :: Functor f => a -> f b -> f a
+
+_ :: Applicative f =>
+         f a -> f (a -> b) -> f b
+
+_ :: Applicative f =>
+              Bool -> f () -> f ()
+```
+
+::::
+:::
+
 {.plain}
 ==========
 
