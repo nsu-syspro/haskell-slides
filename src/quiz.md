@@ -607,6 +607,49 @@ _ :: Applicative f =>
 ::::
 :::
 
+Quiz 15 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=48%}
+
+Evaluate expression \centering
+-------------------
+
+```haskell
+traverse Just [1..5]
+
+sequenceA $ sequenceA
+  [Just "hello", Just "world!"]
+
+sequenceA_ $ sequenceA
+  [Just "hello", Just "world!"]
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=48%}
+
+Evaluate expression \centering
+-------------------
+
+```haskell
+for_ [1..5] Just
+
+for (Just "foo") $ const [1..5]
+
+for [1..3] (flip take [1..])
+```
+
+::::
+:::
+
 {.plain}
 ==========
 
