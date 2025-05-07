@@ -650,6 +650,51 @@ for [1..3] (flip take [1..])
 ::::
 :::
 
+Quiz 16 {.t}
+======
+
+```{=latex}
+\lstset{style=small}
+```
+
+::: columns
+:::: {.column width=48%}
+
+Guess functions and constraints \centering
+-------------------------------
+
+```haskell
+_ :: f a -> f b -> f a
+
+_ :: a -> a -> a
+
+_ :: a -> t a -> Bool
+
+_ :: a -> f a
+```
+
+::::
+\hfill
+\vrule
+\hfill
+:::: {.column width=48%}
+
+Guess functions and constraints \centering
+-------------------------------
+
+```haskell
+_ :: f (a -> b) -> f a -> f b
+
+_ :: t a -> a
+
+_ :: (a -> b -> b) -> b -> t a -> b
+
+_ :: f a
+```
+
+::::
+:::
+
 {.plain}
 ==========
 
