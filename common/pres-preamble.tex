@@ -147,6 +147,11 @@
 %% Hack for hiding literate Haskell code blocks from LaTeX -- https://wiki.haskell.org/index.php?title=Literate_programming#Hiding_code_from_Latex
 \long\def\ignore#1{}
 
+%% Nice formatting for lambda calculus
+%% (e.g. \lam{x}{\lam{y}{\app{x}{y}}} for λx.λy.x y)
+\newcommand{\lam}[2]{\ensuremath{\lambda #1. \, #2}}
+\newcommand{\app}[2]{\ensuremath{#1 \; #2}}
+
 %%%%%%%%%%%%%%%%%%%
 %% Beamer stuff
 %%%%%%%%%%%%%%%%%%%
