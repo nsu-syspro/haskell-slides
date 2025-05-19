@@ -10,8 +10,51 @@ Lambda calculus
   
 }
 
-- History
+::: columns
+:::: {.column width=60%}
 
+History \centering
+-------
+
+- 1928 - Hilbert's *Entscheidungsproblem*  
+  (German for *Decision problem*)
+  - Is there an *algorithm* for deciding whether a proposition
+    in first-order logic is true or false?
+- 1933 - Recursive functions (*Gödel, Herbrand*)
+- 1935 - Untyped $\lambda$-calculus (*Church, Kleene, Rosser*)
+- 1936 - Turing machine
+- 1936 - Church-Turing thesis
+- 1936 - Undecidability of first-order logic
+  - Halting problem of Turing machine
+  - Equivalence of $\lambda$-terms
+
+::::
+
+. . .
+
+:::: {.column width=40%}
+
+David Hilbert \centering
+-------------
+
+- **Haskell Curry**
+- Wilhelm Ackermann
+- John von Neumann
+- Ernst Zermelo
+- ...
+
+**Alonzo Church** \centering
+-------------
+
+- **Stephen Cole Kleene**
+- **J. Barkley Rosser**
+- Alan Turing
+- Dana Scott
+- Michael O. Rabin
+- ...
+
+::::
+:::
 
 Syntax
 ======
