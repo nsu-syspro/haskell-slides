@@ -3,7 +3,7 @@ title: Lambda calculus
 subtitle: Functional models of computation
 ---
 
-Lambda calculus
+Lambda calculus {.fragile}
 ===============
 
 \ignore{
@@ -37,20 +37,24 @@ History \centering
 
 :::: {.column width=35%}
 
+```{=latex}
+\renewcommand\hl[1]{\textcolor{CtpBlue}{#1}}
+```
+
 David Hilbert \centering
 -------------
 
-- **Haskell Curry**
+- \hl{Haskell Curry}
 - Wilhelm Ackermann
 - John von Neumann
 - Ernst Zermelo
 - ...
 
-**Alonzo Church** \centering
+\hl{Alonzo Church} \centering
 -------------
 
-- **Stephen Cole Kleene**
-- **J. Barkley Rosser**
+- \hl{Stephen Cole Kleene}
+- \hl{J. Barkley Rosser}
 - Alan Turing
 - Dana Scott
 - Michael O. Rabin
