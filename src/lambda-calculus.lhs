@@ -62,20 +62,130 @@ David Hilbert \centering
 Syntax
 ======
 
+::: columns
+:::: {.column width=50%}
+
+Grammar \centering
+-------
+
+\vspace{-2.5em}
+
 $$
 term ::= \underbrace{var}_{\text{Variable}}\ |\ 
          \underbrace{\app{term}{term}}_{\text{Application}}\ |\ 
          \underbrace{\lam{var}{term}}_{\text{Abstraction}}
 $$
 
-Examples
+\vspace{-1.5em}
+
+Examples \centering
 --------
 
-Conventions
+\vspace{-2.5em}
+
+$$
+\lam{x}{x} \qquad (\lam{x}{x x})(\lam{y}{y y}) \qquad \lam{f}{\lam{x}{f (f x)}}
+$$
+
+\vspace{-1.5em}
+
+Conventions \centering
 -----------
 
-Tree representation
+- Application is left associative  
+  $a b c = (a b) c$
+- Abstraction is right associative  
+  $\lam{x}{\lam{y}{x}}= \lam{x}{(\lam{y}{x})}$
+- Consecutive abstractions can be combined  
+  $\lam{x}{\lam{y}{x}}= \lam{x y}{x}$
+
+::::
+
+. . .
+
+:::: {.column width=50%}
+
+Tree representation \centering
 -------------------
+
+```{=latex}
+\centering
+
+\begin{minipage}[t]{.4\columnwidth}
+\centering
+
+$\lam{x}{x}$
+
+\vspace{0.5em}
+\begin{tikzpicture}[
+    level distance=2.5em,
+    level 3/.style={sibling distance=3em}
+  ]
+
+  \node {$\lambda x$}
+    child {node {x}
+    };
+
+\end{tikzpicture}
+\end{minipage}
+\vspace{2em}
+
+\begin{minipage}[t]{.4\columnwidth}
+\centering
+
+$(\lam{x}{x x})(\lam{y}{y y})$
+
+\vspace{0.5em}
+\begin{tikzpicture}[
+    level distance=2.5em,
+    level 3/.style={sibling distance=3em}
+  ]
+
+  \node {@}
+    child {node {$\lambda x$}
+      child {node {@}
+        child {node {x}}
+        child {node {x}}
+      }
+    }
+    child {node {$\lambda y$}
+      child {node {@}
+        child {node {y}}
+        child {node {y}}
+      }
+    };
+
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}[t]{.4\columnwidth}
+\centering
+
+$\lam{f}{\lam{x}{f (f x)}}$
+
+\vspace{0.5em}
+\begin{tikzpicture}[
+    level distance=2.5em,
+    level 3/.style={sibling distance=3em}
+  ]
+
+  \node {$\lambda f$}
+    child {node {$\lambda x$}
+      child {node {@}
+        child {node {f}}
+        child {node {@}
+          child {node {f}}
+          child {node {x}}
+        }
+      }
+    };
+
+\end{tikzpicture}
+\end{minipage}
+```
+
+
+::::
+:::
 
 $\alpha$-conversion
 ====================
