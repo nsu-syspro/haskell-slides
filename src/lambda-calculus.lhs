@@ -11,19 +11,22 @@ Lambda calculus
 }
 
 ::: columns
-:::: {.column width=60%}
+:::: {.column width=65%}
 
 History \centering
 -------
 
-- 1928 - Hilbert's *Entscheidungsproblem*  
-  (German for *Decision problem*)
+- 1928 - Hilbert's *Entscheidungsproblem* ^[German for "decision problem"]
   - Is there an *algorithm* for deciding whether a proposition
     in first-order logic is true or false?
-- 1933 - Recursive functions (*Gödel, Herbrand*)
-- 1935 - Untyped $\lambda$-calculus (*Church, Kleene, Rosser*)
-- 1936 - Turing machine
-- 1936 - Church-Turing thesis
+- Replacement for set theory as foundation of mathematics
+  - 1930 - Combinatory logic (*Curry, Schönfinkel*)
+  - 1932 - $\lambda$-calculus (*Church*)
+  - 1935 - Kleene-Rosser paradox
+- Effective computability
+  - 1935 - Untyped $\lambda$-calculus (*Church, Kleene, Rosser*)
+  - 1936 - Turing machine
+  - 1936 - Church-Turing thesis
 - 1936 - Undecidability of first-order logic
   - Halting problem of Turing machine
   - Equivalence of $\lambda$-terms
@@ -32,7 +35,7 @@ History \centering
 
 . . .
 
-:::: {.column width=40%}
+:::: {.column width=35%}
 
 David Hilbert \centering
 -------------
