@@ -541,23 +541,110 @@ $\subst{(\lam{x}{x \fv{y}})}{\fv{y}}{\bad{x}} \underset{\ualpha}{\equiv}
 ::::
 :::
 
-$\beta$-conversion
-==================
+Evaluation {.fragile}
+==========
 
-$\beta$-conversion \centering
+::: columns
+:::: {.column width=52%}
+
+Definitions \centering
+-----------
+
+- Subterm of form $(\lam{x}{M}) N$ is called \cemph{$\beta$-redex}
+- Redex $(\lam{x}{M}) N$ can be \cemph{reduced} to $\subst{M}{x}{N}$
+- Reduction of single redex in term $M$ is called \cemph{$\beta$-reduction} and denoted as $M \rightarrow_{\beta} M'$
+- $\beta$-reduction in multiple steps is denoted as $M \twoheadrightarrow_{\beta} M'$
+
+$\beta$-reduction \centering
 ------------------
 
 \vspace{-1em}
 
 $$
-(\lam{x}{M}) N \underset{\beta}{\longleftrightarrow} \subst{M}{x}{N}
+\begin{aligned}
+(\lam{x}{M}) N &\rightarrow_{\beta} \subst{M}{x}{N} \\
+\lam{x}{M} &\rightarrow_{\beta} \lam{x}{N} & &\text{ \cemph{if} } M \rightarrow_{\beta} N \\
+M P &\rightarrow_{\beta} N P & &\text{ \cemph{if} } M \rightarrow_{\beta} N \\
+P M &\rightarrow_{\beta} P N & &\text{ \cemph{if} } M \rightarrow_{\beta} N
+\end{aligned}
 $$
 
-$\beta$-reduction
------------------
+::::
 
-$\beta$-abstraction
--------------------
+. . .
+
+:::: {.column width=48%}
+
+Example \centering
+-------
+
+```{=latex}
+\centering
+
+\newcommand\redex[1]{\textcolor{CtpBlue}{#1}}
+\newcommand\redexarg[1]{\textcolor{CtpRed}{#1}}
+\newcommand\redexvar[1]{\textcolor{CtpPeach}{#1}}
+\newcommand\good[1]{\textcolor{CtpGreen}{#1}}
+\newcommand\bad[1]{\textcolor{CtpRed}{#1}}
+
+\begin{minipage}[t]{\columnwidth}
+\centering
+
+\vspace{-2em}
+
+$$
+\begin{aligned}
+(\lam{x}{\redex{(\lam{\redexvar{y}}{\redexvar{y} x})} \redexarg{(\lam{z}{z})}})&\ \rightarrow_{\beta} \\
+(\lam{x}{\redex{(\lam{\redexvar{z}}{\redexvar{z}})} \redexarg{x}})&\ \rightarrow_{\beta} \\
+\lam{x}{x}&
+\end{aligned}
+$$
+
+\begin{tikzpicture}[
+    level distance=2.5em,
+    level 2/.style={sibling distance=3em}
+  ]
+
+  \node (t1) {$\lambda x$}
+    child {node [CtpBlue] {@}
+      child [CtpBlue] {node (l1) {$\lambda \redexvar{y}$}
+        child {node {@}
+          child {node {$\redexvar{y}$}}
+          child {node {$x$}}
+        }
+      }
+      child [CtpBlue] {node [CtpRed] (r1) {$\lambda z$}
+        child [CtpRed] {node {$z$}}
+      }
+    };
+
+  \node [fit=(t1) (l1) (r1)] (lam1) {};
+
+  \node [right=6em of t1] (t2) {$\lambda x$}
+    child {node [CtpBlue] {@}
+      child [CtpBlue] {node (l2) {$\lambda \redexvar{z}$}
+        child {node {$\redexvar{z}$}}
+      }
+      child [CtpBlue] {node [CtpRed] (r2) {$x$}}
+    };
+
+  \node [fit=(t2) (l2) (r2)] (lam2) {};
+
+  \node [right=4em of t2] (t3) {$\lambda x$}
+    child {node (l3) {$x$}
+    };
+
+  \node [fit=(l3)] (lam3) {};
+
+  \draw [->] (lam1) -- node [below] {\small $\beta$} (lam2);
+  \draw [->] (lam2) -- node [below] {\small $\beta$} (lam3);
+
+\end{tikzpicture}
+\end{minipage}
+```
+
+::::
+:::
 
 $\eta$-conversion
 =================
