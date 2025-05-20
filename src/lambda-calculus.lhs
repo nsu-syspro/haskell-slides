@@ -76,8 +76,8 @@ Grammar \centering
 
 $$
 term ::= \underbrace{var}_{\text{Variable}}\ |\ 
-         \underbrace{\app{term}{term}}_{\text{Application}}\ |\ 
-         \underbrace{\lam{var}{term}}_{\text{Abstraction}}
+         (\underbrace{\app{term}{term}}_{\text{Application}})\ |\ 
+         (\underbrace{\lam{var}{term}}_{\text{Abstraction}})
 $$
 
 \vspace{-1.5em}
