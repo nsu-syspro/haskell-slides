@@ -350,7 +350,7 @@ $\subst{\lam{x}{x \fv{y}}}{\fv{y}}{\good{\lam{z}{z}}} = \lam{x}{x (\good{\lam{z}
 
   \node [fit=(lx2) (x2) (y2)] (lam2) {};
 
-  \draw [->] (lam1) -- (lam2);
+  \draw [->] (lam1) -- node [below] {\small $\subst{}{\fv{y}}{\good{\lam{z}{z}}}$} (lam2);
 
 \end{tikzpicture}
 \end{minipage}
@@ -359,7 +359,7 @@ $\subst{\lam{x}{x \fv{y}}}{\fv{y}}{\good{\lam{z}{z}}} = \lam{x}{x (\good{\lam{z}
 \begin{minipage}[t]{.9\columnwidth}
 \centering
 
-$\subst{\lam{x}{x \fv{y}}}{\fv{y}}{\bad{x}} = \lam{x}{x (\bad{x})}$
+$\subst{\lam{x}{x \fv{y}}}{\fv{y}}{\bad{x}} = \lam{x}{x \bad{x}}$
 
 \vspace{0.5em}
 \begin{tikzpicture}[
@@ -385,7 +385,7 @@ $\subst{\lam{x}{x \fv{y}}}{\fv{y}}{\bad{x}} = \lam{x}{x (\bad{x})}$
 
   \node [fit=(lx2) (x2) (y2)] (lam2) {};
 
-  \draw [->] (lam1) -- (lam2);
+  \draw [->] (lam1) -- node [below] {\small $\subst{}{\fv{y}}{\bad{x}}$} (lam2);
 
 \end{tikzpicture}
 \end{minipage}
