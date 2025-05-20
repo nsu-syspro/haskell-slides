@@ -489,7 +489,7 @@ Solution \centering
 \newcommand\fv[1]{\textcolor{CtpBlue}{#1}}
 \newcommand\good[1]{\textcolor{CtpGreen}{#1}}
 \newcommand\bad[1]{\textcolor{CtpRed}{#1}}
-\newcommand\changed[1]{\textcolor{CtpPeach}{#1}}
+\newcommand\changed[1]{\textcolor{CtpGreen}{#1}}
 
 \newcommand\ualpha{\uncover<3->{\alpha}}
 
@@ -583,7 +583,7 @@ Example \centering
 
 \newcommand\redex[1]{\textcolor{CtpBlue}{#1}}
 \newcommand\redexarg[1]{\textcolor{CtpRed}{#1}}
-\newcommand\redexvar[1]{\textcolor{CtpPeach}{#1}}
+\newcommand\redexvar[1]{\textcolor{CtpGreen}{#1}}
 \newcommand\good[1]{\textcolor{CtpGreen}{#1}}
 \newcommand\bad[1]{\textcolor{CtpRed}{#1}}
 
