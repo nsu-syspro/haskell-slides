@@ -324,7 +324,7 @@ Example \centering
 \begin{minipage}[t]{.9\columnwidth}
 \centering
 
-$\subst{\lam{x}{x \fv{y}}}{\fv{y}}{\good{\lam{z}{z}}} = \lam{x}{x (\good{\lam{z}{z}})}$
+$\subst{(\lam{x}{x \fv{y}})}{\fv{y}}{\good{\lam{z}{z}}} = \lam{x}{x (\good{\lam{z}{z}})}$
 
 \vspace{0.5em}
 \begin{tikzpicture}[
@@ -355,6 +355,91 @@ $\subst{\lam{x}{x \fv{y}}}{\fv{y}}{\good{\lam{z}{z}}} = \lam{x}{x (\good{\lam{z}
 \end{tikzpicture}
 \end{minipage}
 \vspace{0.5em}
+
+\begin{minipage}[t]{.9\columnwidth}
+\centering
+
+$\subst{(\lam{x}{x \fv{y}})}{\fv{y}}{\bad{x}} = \lam{x}{x \bad{x}}$
+
+\vspace{0.5em}
+\begin{tikzpicture}[
+    level distance=2.5em,
+    level 2/.style={sibling distance=3em}
+  ]
+
+  \node (lx1) {$\lambda x$}
+    child {node {@}
+      child {node (x1) {$x$}}
+      child {node (y1) {$\fv{y}$}}
+    };
+
+  \node [fit=(lx1) (x1) (y1)] (lam1) {};
+
+  \node [right=6em of lx1] (lx2) {$\lambda x$}
+    child {node {@}
+      child {node (x2) {$x$}}
+      child {node (y2) {$\bad{x}$}}
+    };
+
+  \draw[->,CtpRed] (y2) to[bend right=60] node[pos=0.40,sloped,cross out,draw] {} (lx2);
+
+  \node [fit=(lx2) (x2) (y2)] (lam2) {};
+
+  \draw [->] (lam1) -- node [below] {\small $\subst{}{\fv{y}}{\bad{x}}$} (lam2);
+
+\end{tikzpicture}
+\end{minipage}
+```
+
+
+::::
+:::
+
+Renaming {.fragile}
+========
+
+::: columns
+:::: {.column width=50%}
+
+\onslide<3->
+
+$\alpha$-equivalence \centering
+--------------------
+
+\vspace{-1em}
+
+$$
+\begin{aligned}
+\lam{x}{M} &\underset{\alpha}{\equiv} \lam{y}\subst{M}{x}{y} & &\text{ \cemph{if} } x \notin FV(M) \\
+\lam{x}{M} &\underset{\alpha}{\equiv} \lam{x}{N} & &\text{ \cemph{if} } M \underset{\alpha}{\equiv} N \\
+M P &\underset{\alpha}{\equiv} N P & &\text{ \cemph{if} } M \underset{\alpha}{\equiv} N \\
+P M &\underset{\alpha}{\equiv} P N & &\text{ \cemph{if} } M \underset{\alpha}{\equiv} N
+\end{aligned}
+$$
+
+\vspace{-1em}
+
+Conventions \centering
+-----------
+
+- $\lambda$-terms are considered \cemph{identical} up to $\alpha$-equivalence
+- Appropriate renaming happens \cemph{implicitly} if required during substitution
+
+::::
+
+:::: {.column width=50%}
+
+\onslide<1->
+
+Problem \centering
+-------
+
+```{=latex}
+\centering
+
+\newcommand\fv[1]{\textcolor{CtpBlue}{#1}}
+\newcommand\good[1]{\textcolor{CtpGreen}{#1}}
+\newcommand\bad[1]{\textcolor{CtpRed}{#1}}
 
 \begin{minipage}[t]{.9\columnwidth}
 \centering
@@ -391,21 +476,82 @@ $\subst{\lam{x}{x \fv{y}}}{\fv{y}}{\bad{x}} = \lam{x}{x \bad{x}}$
 \end{minipage}
 ```
 
+\vspace{-1em}
+
+\onslide<2->
+
+Solution \centering
+--------
+
+```{=latex}
+\centering
+
+\newcommand\fv[1]{\textcolor{CtpBlue}{#1}}
+\newcommand\good[1]{\textcolor{CtpGreen}{#1}}
+\newcommand\bad[1]{\textcolor{CtpRed}{#1}}
+\newcommand\changed[1]{\textcolor{CtpPeach}{#1}}
+
+\newcommand\ualpha{\uncover<3->{\alpha}}
+
+\begin{minipage}[t]{.9\columnwidth}
+\centering
+
+$\subst{(\lam{x}{x \fv{y}})}{\fv{y}}{\bad{x}} \underset{\ualpha}{\equiv}
+ \subst{(\lam{\changed{z}}{\changed{z} \fv{y}})}{\fv{y}}{\bad{x}} =
+ \lam{\changed{z}}{\changed{z} \bad{x}}$
+
+\vspace{0.5em}
+\begin{tikzpicture}[
+    level distance=2.5em,
+    level 2/.style={sibling distance=3em}
+  ]
+
+  \node (lx1) {$\lambda x$}
+    child {node {@}
+      child {node (x1) {$x$}}
+      child {node (y1) {$\fv{y}$}}
+    };
+
+  \node [fit=(lx1) (x1) (y1)] (lam1) {};
+
+  \node [right=6em of lx1] (lx2) {$\lambda \changed{z}$}
+    child {node {@}
+      child {node (x2) {$\changed{z}$}}
+      child {node (y2) {$\fv{y}$}}
+    };
+
+  \node [fit=(lx2) (x2) (y2)] (lam2) {};
+
+  \node [right=6em of lx2] (lx3) {$\lambda \changed{z}$}
+    child {node {@}
+      child {node (x3) {$\changed{z}$}}
+      child {node (y3) {$\bad{x}$}}
+    };
+
+  \node [fit=(lx3) (x3) (y3)] (lam3) {};
+
+  \draw [->] (lam1) -- node [below] {\small $\ualpha$} (lam2);
+  \draw [->] (lam2) -- node [below] {\small $\subst{}{\fv{y}}{\bad{x}}$} (lam3);
+
+\end{tikzpicture}
+\end{minipage}
+```
+
 
 ::::
 :::
 
-$\alpha$-conversion
-====================
-
-Substitution
-------------
-
-$\alpha$-equivalence
---------------------
-
 $\beta$-conversion
 ==================
+
+$\beta$-conversion \centering
+------------------
+
+\vspace{-1em}
+
+$$
+(\lam{x}{M}) N \underset{\beta}{\longleftrightarrow} \subst{M}{x}{N}
+$$
 
 $\beta$-reduction
 -----------------
@@ -415,6 +561,15 @@ $\beta$-abstraction
 
 $\eta$-conversion
 =================
+
+$\eta$-conversion \centering
+-----------------
+
+\vspace{-1em}
+
+$$
+(\lam{x}{M x}) \underset{\eta}{\longleftrightarrow} M \text{ \cemph{if} } x \notin FV(M)
+$$
 
 Convertibility
 ==============
