@@ -596,8 +596,7 @@ Example \centering
 $$
 \begin{aligned}
 (\lam{x}{\redex{(\lam{\redexvar{y}}{\redexvar{y} x})} \redexarg{(\lam{z}{z})}})&\ \rightarrow_{\beta} \\
-(\lam{x}{\redex{(\lam{\redexvar{z}}{\redexvar{z}})} \redexarg{x}})&\ \rightarrow_{\beta} \\
-\lam{x}{x}&
+(\lam{x}{\redex{(\lam{\redexvar{z}}{\redexvar{z}})} \redexarg{x}})&\ \rightarrow_{\beta} \lam{x}{x}
 \end{aligned}
 $$
 
