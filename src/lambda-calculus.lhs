@@ -646,32 +646,95 @@ $$
 ::::
 :::
 
-$\eta$-conversion
-=================
+Reduction order {.fragile}
+===============
 
-$\eta$-conversion \centering
------------------
+::: columns
+:::: {.column width=50%}
+
+Normal order \centering
+------------
+
+- Term without any redex is in \cemph{$\beta$-normal form}
+- Reduction sequence that always reduces leftmost outermost redex
+  is called \cemph{normal order reduction}
+
+Example \centering
+-------
+
+\vspace{-2em}
+
+```{=latex}
+\newcommand\ra[1]{\textcolor{CtpRed}{#1}}
+\newcommand\rf[1]{\textcolor{CtpGreen}{#1}}
+\newcommand\rg[1]{\textcolor{CtpBlue}{#1}}
+\renewcommand\ul[2]{{\color{#1}\underline{{\color{main} #2}}}}
+```
+
+$$
+\begin{aligned}
+\ul{CtpRed}{(\lam{z}{\app{\ul{CtpGreen}{((\lam{x}{x z}) \rf{f})}}{\ul{CtpBlue}{((\lam{y}{y z}) \rg{g})}}}) \ra{a}}
+&\rightarrow_{\beta} \\
+\app{\ul{CtpGreen}{((\lam{x}{x \ra{a}}) \rf{f})}}{\ul{CtpBlue}{((\lam{y}{y \ra{a}}) \rg{g})}}
+&\rightarrow_{\beta} \\
+\app{(\rf{f} \ra{a})}{\ul{CtpBlue}{((\lam{y}{y \ra{a}}) \rg{g})}}
+&\rightarrow_{\beta}
+\app{(\rf{f} \ra{a})}{(\rg{g} \ra{a})}
+\end{aligned}
+$$
+
+::::
+
+. . .
+
+:::: {.column width=50%}
+
+Partiality \centering
+----------
 
 \vspace{-1em}
 
 $$
-(\lam{x}{M x}) \underset{\eta}{\longleftrightarrow} M \text{ \cemph{if} } x \notin FV(M)
+\begin{aligned}
+\Omega = \underline{(\lam{x}{x x}) (\lam{x}{x x})}
+&\rightarrow_{\beta} \\
+\subst{(x x)}{x}{(\lam{x}{x x})}
+&\rightarrow_{\beta} \\
+\underline{{(\lam{x}{x x}) (\lam{x}{x x})}}
+&\rightarrow_{\beta} \dots
+\end{aligned}
 $$
 
-Convertibility
-==============
+. . .
 
-Normal order reduction
-======================
+\centering
 
-First Church-Rosser theorem
----------------------------
+$\Omega$ has \cemph{no $\beta$-normal form}
 
-Second Church-Rosser theorem
-----------------------------
+\vspace{0.5em}
 
-Normal order reduction
-----------------------
+. . .
+
+Laziness \centering
+--------
+
+\vspace{-1em}
+
+$$
+\begin{aligned}
+\underline{(\lam{x}{y})\Omega}
+\rightarrow_{\beta} y
+\end{aligned}
+$$
+
+. . .
+
+\centering
+
+\cemph{Normal order reduction} models \cemph{lazy evaluation}
+
+::::
+:::
 
 Recursion
 =========
