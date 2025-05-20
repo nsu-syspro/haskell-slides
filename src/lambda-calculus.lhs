@@ -554,6 +554,7 @@ Definitions \centering
 - Redex $(\lam{x}{M}) N$ can be \cemph{reduced} to $\subst{M}{x}{N}$
 - Reduction of single redex in term $M$ is called \cemph{$\beta$-reduction} and denoted as $M \rightarrow_{\beta} M'$
 - $\beta$-reduction in multiple steps is denoted as $M \twoheadrightarrow_{\beta} M'$
+- Term without any redex is in \cemph{$\beta$-normal form}
 
 $\beta$-reduction \centering
 ------------------
