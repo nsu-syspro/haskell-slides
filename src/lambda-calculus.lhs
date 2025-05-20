@@ -37,24 +37,20 @@ History \centering
 
 :::: {.column width=35%}
 
-```{=latex}
-\renewcommand\hl[1]{\textcolor{CtpBlue}{#1}}
-```
-
 David Hilbert \centering
 -------------
 
-- \hl{Haskell Curry}
+- \cemph{Haskell Curry}
 - Wilhelm Ackermann
 - John von Neumann
 - Ernst Zermelo
 - ...
 
-\hl{Alonzo Church} \centering
+\cemph{Alonzo Church} \centering
 -------------
 
-- \hl{Stephen Cole Kleene}
-- \hl{J. Barkley Rosser}
+- \cemph{Stephen Cole Kleene}
+- \cemph{J. Barkley Rosser}
 - Alan Turing
 - Dana Scott
 - Michael O. Rabin
@@ -195,9 +191,9 @@ Free and bound variables {.fragile}
 ========================
 
 ::: columns
-:::: {.column width=50%}
+:::: {.column width=55%}
 
-Free variables \centering
+Free variables $FV(t)$ \centering
 --------------
 
 \vspace{-2em}
@@ -212,8 +208,8 @@ $$
 
 \vspace{-1.5em}
 
-Bound variables \centering
---------------
+Bound variables $BV(t)$ \centering
+---------------
 
 \vspace{-2em}
 
@@ -225,9 +221,16 @@ $$
 \end{aligned}
 $$
 
+\vspace{-1.5em}
+
+Closed terms \centering
+------------
+
+Term $t$ is called \cemph{closed} or \cemph{combinator} if $FV(t) = \emptyset$
+
 ::::
 
-:::: {.column width=50%}
+:::: {.column width=45%}
 
 Example \centering
 -------
@@ -263,6 +266,126 @@ $\lam{\bvx{x}}{(\lam{\bvy{y}}{\bvy{y} \bvx{x}}) \fv{z}}$
 
   \draw[->,CtpRed] (x) to[bend right=80,distance=5em] (lx);
   \draw[->,CtpGreen] (y) to[bend left=60] (ly);
+
+\end{tikzpicture}
+\end{minipage}
+```
+
+
+::::
+:::
+
+Substitution {.fragile}
+========================
+
+::: columns
+:::: {.column width=50%}
+
+Substitution $\subst{t}{v}{S}$ \centering
+------------
+
+\vspace{-1em}
+
+$$
+\begin{aligned}
+\subst{x}{v}{S} &=
+  \begin{cases}
+  S & v = x \\
+  x & v \neq x
+  \end{cases} \\
+\subst{(M N)}{v}{S}  &= (\app{\subst{M}{v}{S}}{\subst{N}{v}{S}}) \\
+\subst{(\lam{x}{M})}{v}{S} &=
+  \begin{cases}
+  \lam{x}{M} & v = x \\
+  \lam{x}{\subst{M}{v}{S}} & v \neq x
+  \end{cases} \\
+\end{aligned}
+$$
+
+Safe substitution \centering
+-----------------
+
+Substitution $\subst{t}{v}{S}$ is \cemph{safe} if $BV(t) \cap FV(S) = \emptyset$
+
+::::
+
+:::: {.column width=50%}
+
+Example \centering
+-------
+
+```{=latex}
+\centering
+
+\newcommand\fv[1]{\textcolor{CtpBlue}{#1}}
+\newcommand\good[1]{\textcolor{CtpGreen}{#1}}
+\newcommand\bad[1]{\textcolor{CtpRed}{#1}}
+
+\begin{minipage}[t]{.9\columnwidth}
+\centering
+
+$\subst{\lam{x}{x \fv{y}}}{\fv{y}}{\good{\lam{z}{z}}} = \lam{x}{x (\good{\lam{z}{z}})}$
+
+\vspace{0.5em}
+\begin{tikzpicture}[
+    level distance=2.5em,
+    level 2/.style={sibling distance=3em}
+  ]
+
+  \node (lx1) {$\lambda x$}
+    child {node {@}
+      child {node (x1) {$x$}}
+      child {node (y1) {$\fv{y}$}}
+    };
+
+  \node [fit=(lx1) (x1) (y1)] (lam1) {};
+
+  \node [right=6em of lx1] (lx2) {$\lambda x$}
+    child {node {@}
+      child {node (x2) {$x$}}
+      child {node (y2) {$\good{\lambda z}$}
+        child {node {$\good{z}$}}
+      }
+    };
+
+  \node [fit=(lx2) (x2) (y2)] (lam2) {};
+
+  \draw [->] (lam1) -- (lam2);
+
+\end{tikzpicture}
+\end{minipage}
+\vspace{0.5em}
+
+\begin{minipage}[t]{.9\columnwidth}
+\centering
+
+$\subst{\lam{x}{x \fv{y}}}{\fv{y}}{\bad{x}} = \lam{x}{x (\bad{x})}$
+
+\vspace{0.5em}
+\begin{tikzpicture}[
+    level distance=2.5em,
+    level 2/.style={sibling distance=3em}
+  ]
+
+  \node (lx1) {$\lambda x$}
+    child {node {@}
+      child {node (x1) {$x$}}
+      child {node (y1) {$\fv{y}$}}
+    };
+
+  \node [fit=(lx1) (x1) (y1)] (lam1) {};
+
+  \node [right=6em of lx1] (lx2) {$\lambda x$}
+    child {node {@}
+      child {node (x2) {$x$}}
+      child {node (y2) {$\bad{x}$}}
+    };
+
+  \draw[->,CtpRed] (y2) to[bend right=60] node[pos=0.40,sloped,cross out,draw] {} (lx2);
+
+  \node [fit=(lx2) (x2) (y2)] (lam2) {};
+
+  \draw [->] (lam1) -- (lam2);
 
 \end{tikzpicture}
 \end{minipage}

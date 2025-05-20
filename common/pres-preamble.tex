@@ -151,6 +151,10 @@
 %% (e.g. \lam{x}{\lam{y}{\app{x}{y}}} for λx.λy.x y)
 \newcommand{\lam}[2]{\ensuremath{\lambda #1. \, #2}}
 \newcommand{\app}[2]{\ensuremath{#1 \; #2}}
+\newcommand{\subst}[3]{#1_{[#2 := #3]}}
+
+%% Emphasis with color
+\newcommand\cemph[1]{\textcolor{CtpMauve}{#1}}
 
 %%%%%%%%%%%%%%%%%%%
 %% Beamer stuff
@@ -217,7 +221,7 @@
 %%%%%%%%%%%%%%%%%%%
 
 \usepackage{tikz}
-\usetikzlibrary{tikzmark,shapes,matrix,calc,positioning,fit,graphs,arrows.meta,backgrounds,decorations.pathreplacing,overlay-beamer-styles}
+\usetikzlibrary{tikzmark,shapes,matrix,calc,positioning,fit,graphs,arrows.meta,backgrounds,decorations.pathreplacing,overlay-beamer-styles,shapes.misc}
 
 \usetikzmarklibrary{listings}
 
