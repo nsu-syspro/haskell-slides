@@ -554,7 +554,6 @@ Definitions \centering
 - Redex $(\lam{x}{M}) N$ can be \cemph{reduced} to $\subst{M}{x}{N}$
 - Reduction of single redex in term $M$ is called \cemph{$\beta$-reduction} and denoted as $M \rightarrow_{\beta} M'$
 - $\beta$-reduction in multiple steps is denoted as $M \twoheadrightarrow_{\beta} M'$
-- Term without any redex is in \cemph{$\beta$-normal form}
 
 $\beta$-reduction \centering
 ------------------
@@ -582,11 +581,8 @@ Example \centering
 ```{=latex}
 \centering
 
-\newcommand\redex[1]{\textcolor{CtpBlue}{#1}}
-\newcommand\redexarg[1]{\textcolor{CtpRed}{#1}}
-\newcommand\redexvar[1]{\textcolor{CtpGreen}{#1}}
-\newcommand\good[1]{\textcolor{CtpGreen}{#1}}
-\newcommand\bad[1]{\textcolor{CtpRed}{#1}}
+\newcommand\lzz[1]{\textcolor{CtpBlue}{#1}}
+\newcommand\cx[1]{\textcolor{CtpRed}{#1}}
 
 \begin{minipage}[t]{\columnwidth}
 \centering
@@ -595,8 +591,8 @@ Example \centering
 
 $$
 \begin{aligned}
-(\lam{x}{\redex{(\lam{\redexvar{y}}{\redexvar{y} x})} \redexarg{(\lam{z}{z})}})&\ \rightarrow_{\beta} \\
-(\lam{x}{\redex{(\lam{\redexvar{z}}{\redexvar{z}})} \redexarg{x}})&\ \rightarrow_{\beta} \lam{x}{x}
+(\lam{x}{\underline{(\lam{y}{y \cx{x}}) (\lzz{\lam{z}{z}})}})&\ \rightarrow_{\beta} \\
+(\lam{x}{\underline{(\lzz{\lam{z}{z}}) \cx{x}}})&\ \rightarrow_{\beta} \lam{x}{\cx{x}}
 \end{aligned}
 $$
 
@@ -606,32 +602,36 @@ $$
   ]
 
   \node (t1) {$\lambda x$}
-    child {node [CtpBlue] {@}
-      child [CtpBlue] {node (l1) {$\lambda \redexvar{y}$}
-        child {node {@}
-          child {node {$\redexvar{y}$}}
-          child {node {$x$}}
+    child {node (a1) {@}
+      child {node (l1) {$\lambda y$}
+        child {node (b1) {@}
+          child {node (y1) {$y$}}
+          child {node (x1) {$\cx{x}$}}
         }
       }
-      child [CtpBlue] {node [CtpRed] (r1) {$\lambda z$}
-        child [CtpRed] {node {$z$}}
+      child {node [CtpBlue] (r1) {$\lambda z$}
+        child [CtpBlue] {node (z1) {$z$}}
       }
     };
+
+  \draw \convexpath{y1,l1,a1,r1,z1,x1}{1em};
 
   \node [fit=(t1) (l1) (r1)] (lam1) {};
 
   \node [right=6em of t1] (t2) {$\lambda x$}
-    child {node [CtpBlue] {@}
-      child [CtpBlue] {node (l2) {$\lambda \redexvar{z}$}
-        child {node {$\redexvar{z}$}}
+    child {node (a2) {@}
+      child {node [CtpBlue] (l2) {$\lambda z$}
+        child [CtpBlue] {node (z2) {$z$}}
       }
-      child [CtpBlue] {node [CtpRed] (r2) {$x$}}
+      child {node (r2) {$\cx{x}$}}
     };
+
+  \draw \convexpath{z2,l2,a2,r2}{1em};
 
   \node [fit=(t2) (l2) (r2)] (lam2) {};
 
   \node [right=4em of t2] (t3) {$\lambda x$}
-    child {node (l3) {$x$}
+    child {node (l3) {$\cx{x}$}
     };
 
   \node [fit=(l3)] (lam3) {};
@@ -721,6 +721,18 @@ Algebraic data types
 
 Predecessor
 -----------
+
+$\eta$-conversion
+=================
+
+$\eta$-conversion \centering
+-----------------
+
+\vspace{-1em}
+
+$$
+(\lam{x}{M x}) \underset{\eta}{\longleftrightarrow} M \text{ \cemph{if} } x \notin FV(M)
+$$
 
 
 {.plain}
