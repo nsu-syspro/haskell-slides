@@ -191,11 +191,89 @@ $\lam{f}{\lam{x}{f (f x)}}$
 ::::
 :::
 
+Free and bound variables {.fragile}
+========================
+
+::: columns
+:::: {.column width=50%}
+
+Free variables \centering
+--------------
+
+\vspace{-2em}
+
+$$
+\begin{aligned}
+&\text{Variable:}    &FV(x)          &= \{x\} \\
+&\text{Application:} &FV(M N)        &= FV(M) \cup FV(N) \\
+&\text{Abstraction:} &FV(\lam{x}{M}) &= FV(M)\ \backslash\ \{x\}
+\end{aligned}
+$$
+
+\vspace{-1.5em}
+
+Bound variables \centering
+--------------
+
+\vspace{-2em}
+
+$$
+\begin{aligned}
+&\text{Variable:}    &BV(x)          &= \emptyset \\
+&\text{Application:} &BV(M N)        &= BV(M) \cup BV(N) \\
+&\text{Abstraction:} &BV(\lam{x}{M}) &= BV(M) \cup \{x\}
+\end{aligned}
+$$
+
+::::
+
+:::: {.column width=50%}
+
+Example \centering
+-------
+
+```{=latex}
+\centering
+
+\begin{minipage}[t]{.4\columnwidth}
+\centering
+
+\newcommand\fv[1]{\textcolor{CtpBlue}{#1}}
+\newcommand\bvx[1]{\textcolor{CtpRed}{#1}}
+\newcommand\bvy[1]{\textcolor{CtpGreen}{#1}}
+
+$\lam{\bvx{x}}{(\lam{\bvy{y}}{\bvy{y} \bvx{x}}) \fv{z}}$
+
+\vspace{0.5em}
+\begin{tikzpicture}[
+    level distance=2.5em,
+    level 3/.style={sibling distance=3em}
+  ]
+
+  \node (lx) {$\lambda \bvx{x}$}
+    child {node {@}
+      child {node (ly) {$\lambda \bvy{y}$}
+        child {node {@}
+          child {node (y) {\bvy{y}}}
+          child {node (x) {\bvx{x}}}
+        }
+      }
+      child {node {\fv{z}}}
+    };
+
+  \draw[->,CtpRed] (x) to[bend right=80,distance=5em] (lx);
+  \draw[->,CtpGreen] (y) to[bend left=60] (ly);
+
+\end{tikzpicture}
+\end{minipage}
+```
+
+
+::::
+:::
+
 $\alpha$-conversion
 ====================
-
-Free and bound variables
-------------------------
 
 Substitution
 ------------
