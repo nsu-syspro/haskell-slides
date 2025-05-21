@@ -343,8 +343,8 @@ $\subst{(\lam{x}{x \fv{y}})}{\fv{y}}{\good{\lam{z}{z}}} = \lam{x}{x (\good{\lam{
   \node [right=6em of lx1] (lx2) {$\lambda x$}
     child {node {@}
       child {node (x2) {$x$}}
-      child {node (y2) {$\good{\lambda z}$}
-        child {node {$\good{z}$}}
+      child {node [CtpGreen] (y2) {$\lambda z$}
+        child [CtpGreen] {node {$z$}}
       }
     };
 
@@ -541,21 +541,31 @@ $\subst{(\lam{x}{x \fv{y}})}{\fv{y}}{\bad{x}} \underset{\ualpha}{\equiv}
 ::::
 :::
 
-Evaluation {.fragile}
+Evaluation {.fragile .t}
 ==========
 
 ::: columns
 :::: {.column width=52%}
 
+::::: {.block}
+
 Definitions \centering
 -----------
 
-- Subterm of form $(\lam{x}{M}) N$ is called \cemph{$\beta$-redex}
-- Redex $(\lam{x}{M}) N$ can be \cemph{reduced} to $\subst{M}{x}{N}$
+- Subterm of form \textcolor{CtpPeach}{$(\lam{x}{M}) N$} is called \cemph{$\beta$-redex}
+- Redex \textcolor{CtpPeach}{$(\lam{x}{M}) N$} can be \cemph{reduced} to \textcolor{CtpPeach}{$\subst{M}{x}{N}$}
 - $M \rightarrow_{\beta} M'$ denotes single \cemph{$\beta$-reduction}
 - $M \twoheadrightarrow_{\beta} M'$ denotes several $\beta$-reductions
 - $M \leftrightarrow_{\beta} M'$ denotes \cemph{$\beta$-conversion} as
   smallest equivalence relation containing $\rightarrow_{\beta}$
+
+:::::
+
+```{=latex}
+\begin{onlyenv}<1-2>
+```
+
+::::: {.block}
 
 $\beta$-reduction \centering
 ------------------
@@ -570,6 +580,50 @@ M P &\rightarrow_{\beta} N P & &\text{ \cemph{if} } M \rightarrow_{\beta} N \\
 P M &\rightarrow_{\beta} P N & &\text{ \cemph{if} } M \rightarrow_{\beta} N
 \end{aligned}
 $$
+
+:::::
+
+```{=latex}
+\end{onlyenv}
+```
+
+```{=latex}
+\begin{onlyenv}<3->
+```
+
+:::::{.block}
+
+$\beta$-conversion \centering
+------------------
+
+```{=latex}
+\centering
+
+\begin{minipage}[t]{\columnwidth}
+\centering
+
+\begin{tikzpicture}
+
+  \matrix [row sep=1em, column sep=3em,ampersand replacement=\&] {
+  \node (M1) {M}; \&                \&                \&                 \& \node (M2) {M'}; \\
+                  \&                \& \node (B) {B}; \&                 \& \\
+                  \& \node (A) {A}; \&                \&  \node (C) {C}; \& \\
+  };
+  \draw [<->] (M1) -- node [below] {\small $\beta$} (M2);
+  \draw [->>,densely dotted] (M1) -- node [below left] {\small $\beta$} (A);
+  \draw [->>,densely dotted] (B)  -- node [below right] {\small $\beta$} (A);
+  \draw [->>,densely dotted] (B)  -- node [below left] {\small $\beta$} (C);
+  \draw [->>,densely dotted] (M2) -- node [below right] {\small $\beta$} (C);
+
+\end{tikzpicture}
+\end{minipage}
+```
+
+:::::
+
+```{=latex}
+\end{onlyenv}
+```
 
 ::::
 
@@ -644,6 +698,9 @@ $$
 \end{tikzpicture}
 \end{minipage}
 ```
+
+. . .
+
 
 ::::
 :::
