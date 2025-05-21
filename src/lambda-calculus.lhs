@@ -905,6 +905,8 @@ Confluence \centering
 Recursion
 =========
 
+. . .
+
 Fixed-point combinator \centering
 ----------------------
 
@@ -915,6 +917,8 @@ Y f \leftrightarrow_{\beta} f (Y f)
 $$
 
 \vspace{-1em}
+
+. . .
 
 Curry's $Y$-combinator \centering
 ------------------------------
@@ -957,7 +961,9 @@ $$
 
 \textcolor{CtpOverlay2}{Note: $\Theta f \rightarrow_{\beta} f (\Theta f)$}
 
-Church-Turing thesis
+\ignore{
+
+Church--Turing thesis
 ====================
 
 Undecidability
@@ -990,6 +996,7 @@ $$
 (\lam{x}{M x}) \underset{\eta}{\longleftrightarrow} M \text{ \cemph{if} } x \notin FV(M)
 $$
 
+}
 
 {.plain}
 ========
