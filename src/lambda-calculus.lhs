@@ -937,8 +937,8 @@ $$
 
 \centering
 
-\textcolor{CtpOverlay2}{Note: neither $Y f \rightarrow_{\beta} f (Y f)$
-nor $f (Y f) \rightarrow_{\beta} Y f$}
+\textcolor{CtpOverlay2}{Note: neither $Y f \twoheadrightarrow_{\beta} f (Y f)$
+nor $f (Y f) \twoheadrightarrow_{\beta} Y f$}
 
 . . .
 
@@ -949,9 +949,9 @@ Turing's $\Theta$-combinator \centering
 
 $$
 \Theta = \app{
-  (\lam{xy}{x(xxy)})
+  (\lam{xy}{y(xxy)})
 }{
-  (\lam{xy}{x(xxy)})
+  (\lam{xy}{y(xxy)})
 }
 $$
 
@@ -959,7 +959,7 @@ $$
 
 \centering
 
-\textcolor{CtpOverlay2}{Note: $\Theta f \rightarrow_{\beta} f (\Theta f)$}
+\textcolor{CtpOverlay2}{Note: $\Theta f \twoheadrightarrow_{\beta} f (\Theta f)$}
 
 \ignore{
 
