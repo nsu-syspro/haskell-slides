@@ -905,11 +905,21 @@ Confluence \centering
 Recursion
 =========
 
-Fixed-point combinator
+Fixed-point combinator \centering
 ----------------------
 
-Curry's $Y$-combinator
+\vspace{-1em}
+
+$$
+Y f \leftrightarrow_{\beta} f (Y f)
+$$
+
+\vspace{-1em}
+
+Curry's $Y$-combinator \centering
 ------------------------------
+
+\vspace{-1em}
 
 $$
 Y = \lam{f}{\app{
@@ -919,8 +929,19 @@ Y = \lam{f}{\app{
 }}
 $$
 
-Turing's $\Theta$-combinator
+. . .
+
+\centering
+
+\textcolor{CtpOverlay2}{Note: neither $Y f \rightarrow_{\beta} f (Y f)$
+nor $f (Y f) \rightarrow_{\beta} Y f$}
+
+. . .
+
+Turing's $\Theta$-combinator \centering
 -------------------------------
+
+\vspace{-1em}
 
 $$
 \Theta = \app{
@@ -929,6 +950,12 @@ $$
   (\lam{xy}{x(xxy)})
 }
 $$
+
+. . .
+
+\centering
+
+\textcolor{CtpOverlay2}{Note: $\Theta f \rightarrow_{\beta} f (\Theta f)$}
 
 Church-Turing thesis
 ====================
