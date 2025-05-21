@@ -602,7 +602,7 @@ $\beta$-conversion \centering
 \begin{minipage}[t]{\columnwidth}
 \centering
 
-\begin{tikzpicture}
+\begin{tikzpicture}[>=Classical TikZ Rightarrow,thick]
 
   \matrix [row sep=1em, column sep=3em,ampersand replacement=\&] {
   \node (M1) {M}; \&                \&                \&                 \& \node (M2) {M'}; \\
@@ -855,7 +855,7 @@ Church--Rosser \centering
 \begin{minipage}[t]{\columnwidth}
 \centering
 
-\begin{tikzpicture}
+\begin{tikzpicture}[>=Classical TikZ Rightarrow,thick]
 
   \matrix [row sep=3.0em, column sep=3.0em,ampersand replacement=\&] {
   \node (M1) {M}; \& \& \node (M2) {M'}; \\
@@ -883,7 +883,7 @@ Confluence \centering
 \begin{minipage}[t]{\columnwidth}
 \centering
 
-\begin{tikzpicture}
+\begin{tikzpicture}[>=Classical TikZ Rightarrow,thick]
 
   \matrix [row sep=3.0em, column sep=3.0em,ampersand replacement=\&] {
   \& \node (M) {M}; \& \\
