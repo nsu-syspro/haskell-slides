@@ -59,14 +59,14 @@ David Hilbert \centering
 ::::
 :::
 
-Syntax
-======
+Untyped lambda calculus
+=======================
 
 ::: columns
 :::: {.column width=50%}
 
-Grammar \centering
--------
+Syntax \centering
+------
 
 \vspace{-2.5em}
 
