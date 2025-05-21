@@ -552,8 +552,10 @@ Definitions \centering
 
 - Subterm of form $(\lam{x}{M}) N$ is called \cemph{$\beta$-redex}
 - Redex $(\lam{x}{M}) N$ can be \cemph{reduced} to $\subst{M}{x}{N}$
-- Reduction of single redex in term $M$ is called \cemph{$\beta$-reduction} and denoted as $M \rightarrow_{\beta} M'$
-- $\beta$-reduction in multiple steps is denoted as $M \twoheadrightarrow_{\beta} M'$
+- $M \rightarrow_{\beta} M'$ denotes single \cemph{$\beta$-reduction}
+- $M \twoheadrightarrow_{\beta} M'$ denotes several $\beta$-reductions
+- $M \leftrightarrow_{\beta} M'$ denotes \cemph{$\beta$-conversion} as
+  smallest equivalence relation containing $\rightarrow_{\beta}$
 
 $\beta$-reduction \centering
 ------------------
@@ -689,8 +691,10 @@ $$
 
 :::: {.column width=50%}
 
-Partiality \centering
-----------
+Totality \centering
+--------
+
+. . .
 
 \vspace{-1em}
 
@@ -715,8 +719,10 @@ $\Omega$ has \cemph{no $\beta$-normal form}
 
 . . .
 
-Laziness \centering
---------
+Strictness \centering
+----------
+
+. . .
 
 \vspace{-1em}
 
@@ -731,7 +737,110 @@ $$
 
 \centering
 
-\cemph{Normal order reduction} models \cemph{lazy evaluation}
+Normal order reduction models  
+\cemph{non-strict} or \cemph{lazy} evaluation
+
+::::
+:::
+
+Reduction order {.fragile}
+===============
+
+::: columns
+:::: {.column width=54%}
+
+\onslide<2->
+
+Church--Rosser theorem \centering
+----------------------
+
+If $M \leftrightarrow_{\beta} M'$ then there exists $N$
+such that $M \twoheadrightarrow_{\beta} N$ and $M' \twoheadrightarrow_{\beta} N$
+
+\onslide<3->
+
+Confluence property \centering
+-------------------
+
+If $M \twoheadrightarrow_{\beta} P$ and $M \twoheadrightarrow_{\beta} Q$ then there exists $N$
+such that $P \twoheadrightarrow_{\beta} N$ and $Q \twoheadrightarrow_{\beta} N$
+
+\onslide<4->
+
+Corollary \centering
+---------
+
+$\beta$-normal form is \cemph{unique} up to $\alpha$-equivalence
+
+\onslide<5->
+
+Normal order theorem \centering
+--------------------
+
+If $M \twoheadrightarrow_{\beta} N$ and $N$ is in $\beta$-normal form
+then there exists \cemph{normal order reduction} sequence from $M$ to $N$
+
+::::
+
+:::: {.column width=46%}
+
+\onslide<2->
+
+Church--Rosser \centering
+--------------
+
+```{=latex}
+\centering
+
+\newcommand\lzz[1]{\textcolor{CtpBlue}{#1}}
+\newcommand\cx[1]{\textcolor{CtpRed}{#1}}
+
+\begin{minipage}[t]{\columnwidth}
+\centering
+
+\begin{tikzpicture}
+
+  \matrix [row sep=3.0em, column sep=3.0em,ampersand replacement=\&] {
+  \node (M1) {M}; \& \& \node (M2) {M'}; \\
+  \& \node (N) {N}; \& \\
+  };
+  \draw [<->] (M1) -- node [below] {\small $\beta$} (M2);
+  \draw [->>,densely dotted] (M1) -- node [below left] {\small $\beta$} (N);
+  \draw [->>,densely dotted] (M2) -- node [below right] {\small $\beta$} (N);
+
+\end{tikzpicture}
+\end{minipage}
+```
+
+\onslide<3->
+
+Confluence \centering
+----------
+
+```{=latex}
+\centering
+
+\newcommand\lzz[1]{\textcolor{CtpBlue}{#1}}
+\newcommand\cx[1]{\textcolor{CtpRed}{#1}}
+
+\begin{minipage}[t]{\columnwidth}
+\centering
+
+\begin{tikzpicture}
+
+  \matrix [row sep=3.0em, column sep=3.0em,ampersand replacement=\&] {
+  \& \node (M) {M}; \& \\
+  \node (P) {P}; \& \& \node (Q) {Q}; \\
+  \& \node (N) {N}; \& \\
+  };
+  \draw [->>] (M) -- node [above left] {\small $\beta$} (P);
+  \draw [->>] (M) -- node [above right] {\small $\beta$} (Q);
+  \draw [->>,densely dotted] (P) -- node [below left] {\small $\beta$} (N);
+  \draw [->>,densely dotted] (Q) -- node [below right] {\small $\beta$} (N);
+
+\end{tikzpicture}
+\end{minipage}
+```
 
 ::::
 :::
