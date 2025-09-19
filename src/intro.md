@@ -66,10 +66,10 @@ Structure \centering
 ```{=latex}
 \begin{minipage}[c][.5\textheight][c]{\linewidth}
 \centering
-\qrcode[height=3.5cm]{https://sys.pro/courses/haskell/}
+\qrcode[height=3.5cm]{https://nsu-syspro.github.io/courses/haskell/}
 \vspace{1em}
 ```
-<https://sys.pro/courses/haskell/>
+<https://nsu-syspro.github.io/courses/haskell/>
 ```{=latex}
 \end{minipage}
 ```
