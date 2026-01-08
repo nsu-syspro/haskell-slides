@@ -62,7 +62,7 @@ Official installer [GHCup](https://www.haskell.org/ghcup/) \centering
 ```bash {style=small}
 $ ghc --version
 The Glorious Glasgow Haskell Compilation System,
-version 9.4.8
+version 9.8.4
 ```
 
 Note: any version 9.x.x or above will be fine
@@ -108,7 +108,7 @@ Using GHCi \centering
 
 ```haskell {style=small}
 $ ghci
-GHCi, version 9.4.8:
+GHCi, version 9.8.4:
 https://www.haskell.org/ghc/ :? for help
 ghci> 2
 2
