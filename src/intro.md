@@ -55,9 +55,9 @@ Structure \centering
 
 - 16 weeks, 2 classes per week
 - 3 modules
-  - Functional programming in Haskell (6 weeks)
+  - Functional programming in Haskell (4 weeks)
   - Functional abstractions (6 weeks)
-  - Functional models of computation (4 weeks)
+  - Functional models of computation (6 weeks)
 - ~10 homework assignments (10 points each)
 
 ::::
