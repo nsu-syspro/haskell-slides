@@ -250,12 +250,12 @@ infixl 7 *
 ```
 
 ```haskell {style=small}
-ghci> max 2 3 + 2
+ghci> min 2 3 + 2
 4
-ghci> (max 2 3) + 2
+ghci> (min 2 3) + 2
 4
-ghci> max 2 (3 + 2)
-5
+ghci> min 2 (3 + 2)
+2
 ghci> min 4 (max 2 3)
 3
 ```
@@ -636,8 +636,6 @@ ghci> maxBound :: Int
 9223372036854775807
 ghci> maxBound :: Char
 '\1114111'
-ghci> 2^100
-1267650600228229401496703205376
 ghci> 2^100 :: Int
 0
 ghci> 2^100 :: Integer
