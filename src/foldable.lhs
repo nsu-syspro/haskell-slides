@@ -79,6 +79,7 @@ Foldable {.fragile}
 ::::
 :::: {.column width=43%}
 
+>
 >  toList  :: t a -> [a]
 >  null    :: t a -> Bool
 >  length  :: t a -> Int
