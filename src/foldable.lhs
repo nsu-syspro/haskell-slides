@@ -24,7 +24,7 @@ Functional abstractions {.fragile}
 \only<.(1)>{
 ```
 
-![](images/typeclassopedia.pdf){width=100%}
+![](images/typeclassopedia-orig.pdf){width=100%}
 
 ```{=latex}
 }
@@ -34,7 +34,7 @@ Functional abstractions {.fragile}
 \only<.(2)>{
 ```
 
-![](images/typeclassopedia-monoid.pdf){width=100%}
+![](images/typeclassopedia.pdf){width=100%}
 
 ```{=latex}
 }
@@ -44,13 +44,21 @@ Functional abstractions {.fragile}
 \only<.(3)>{
 ```
 
-![](images/typeclassopedia-foldable.pdf){width=100%}
+![](images/typeclassopedia-monoid.pdf){width=100%}
 
 ```{=latex}
 }
 ```
 
+```{=latex}
+\only<.(4)>{
+```
 
+![](images/typeclassopedia-foldable.pdf){width=100%}
+
+```{=latex}
+}
+```
 
 Foldable {.fragile}
 ========
