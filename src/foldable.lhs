@@ -131,14 +131,22 @@ Examples {.fragile}
 
 . . .
 
+. . .
+
 > instance Foldable ((,) a) where
 >   foldMap f (_, r) = f r
 
-. . .
+```{=latex}
+\onslide<.->
+```
 
 > instance Foldable (Either a) where
 >   foldMap _ (Left a) = mempty
 >   foldMap f (Right x) = f x
+
+```{=latex}
+\onslide<.(1)->
+```
 
 ::::
 :::
