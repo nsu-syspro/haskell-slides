@@ -107,24 +107,23 @@ Examples
 
 . . .
 
-> example1 :: Int
-> example1 = length $ filter (== 'x') ['x', 'y', 'x']
+> example :: Int
+> example = length $ filter (== 'x') ['x', 'y', 'x']
 
 . . .
 
-> example2 :: Int
-> example2 = length $ filter (== 'x') "xyx"
+> example' :: Int
+> example' = length $ filter (== 'x') "xyx"
 
 . . .
 
-> -- filterNot
-> example3 :: (a -> Bool) -> [a] -> [a]
-> example3 p xs = filter (not . p) xs
+> filterNot :: (a -> Bool) -> [a] -> [a]
+> filterNot p xs = filter (not . p) xs
 
 . . .
 
-> example4 :: Char -> Bool
-> example4 = (== 'x')
+> equalsX :: Char -> Bool
+> equalsX = (== 'x')
 
 . . .
 
