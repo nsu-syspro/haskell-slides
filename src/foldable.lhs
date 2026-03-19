@@ -63,7 +63,7 @@ Functional abstractions {.fragile}
 Foldable {.fragile}
 ========
 
-[Data.Foldable](https://hackage.haskell.org/package/base-4.22.0.0/docs/Data-Foldable.html) \centering
+[Data.Foldable](https://hackage.haskell.org/package/base/docs/Data-Foldable.html) \centering
 ----------------
 
 . . .
@@ -185,10 +185,10 @@ Resources {.fragile}
 ```{=latex}
 \begin{minipage}[c][.7\textheight][c]{\linewidth}
 \centering
-\qrcode[height=3.5cm]{https://hackage-content.haskell.org/package/base-4.22.0.0/docs/Data-Foldable.html#overview}
+\qrcode[height=3.5cm]{https://hackage-content.haskell.org/package/base/docs/Data-Foldable.html#overview}
 \vspace{1em}
 ```
-<https://hackage-content.haskell.org/package/base-4.22.0.0/docs/Data-Foldable.html#overview>
+<https://hackage-content.haskell.org/package/base/docs/Data-Foldable.html#overview>
 ```{=latex}
 \end{minipage}
 ```

@@ -373,12 +373,12 @@ Strings are lists \centering
 -----------------
 
 - Strings are lists of Unicode characters^[Actually
-  [Unicode code points](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-Char.html)]
+  [Unicode code points](https://hackage.haskell.org/package/base/docs/Data-Char.html)]
 - Characters can be enumerated
 - Strings can be compared lexicographically
 - In real world more efficient implementations are used
-  (see [text](https://hackage.haskell.org/package/text-2.1.2/docs/Data-Text.html)
-  and [bytestring](https://hackage.haskell.org/package/bytestring-0.12.2.0/docs/Data-ByteString.html))
+  (see [text](https://hackage.haskell.org/package/text/docs/Data-Text.html)
+  and [bytestring](https://hackage.haskell.org/package/bytestring/docs/Data-ByteString.html))
 
 ::::
 :::: {.column width=40%}
@@ -726,10 +726,10 @@ Prelude \centering
 ```{=latex}
 \begin{minipage}[c][.4\textheight][c]{\linewidth}
 \centering
-\qrcode[height=1.5cm]{https://hackage.haskell.org/package/base-4.21.0.0/docs/Prelude.html}
+\qrcode[height=1.5cm]{https://hackage.haskell.org/package/base/docs/Prelude.html}
 \vspace{1em}
 ```
-<https://hackage.haskell.org/package/base-4.21.0.0/docs/Prelude.html>
+<https://hackage.haskell.org/package/base/docs/Prelude.html>
 ```{=latex}
 \end{minipage}
 ```

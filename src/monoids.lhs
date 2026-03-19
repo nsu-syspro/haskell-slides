@@ -179,7 +179,7 @@ Haskell
 ::: columns
 :::: {.column width=50%}
 
-[Data.Semigroup](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-Semigroup.html) \centering
+[Data.Semigroup](https://hackage.haskell.org/package/base/docs/Data-Semigroup.html) \centering
 ----------------
 
 > class Semigroup a where
@@ -199,7 +199,7 @@ Minimal complete definition \centering
 ::::
 :::: {.column width=50%}
 
-[Data.Monoid](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-Monoid.html) \phantom{g} \centering
+[Data.Monoid](https://hackage.haskell.org/package/base/docs/Data-Monoid.html) \phantom{g} \centering
 ----------------
 
 > class Semigroup a => Monoid a where
