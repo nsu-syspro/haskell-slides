@@ -8,6 +8,7 @@ Rendered presentations are located in directory [publish](publish):
 - **Functional abstractions**
   - Semigroups and monoids ([pdf](publish/monoids.pdf?raw=true), [lhs](src/monoids.lhs))
   - Foldable ([pdf](publish/foldable.pdf?raw=true), [lhs](src/foldable.lhs))
+  - Functor ([pdf](publish/functor.pdf?raw=true), [lhs](src/functor.lhs))
 - **Functional models of computation**
   - Lambda calculus ([pdf](publish/lambda-calculus.pdf?raw=true), [lhs](src/lambda-calculus.lhs))
   - GHC internals by example ([pdf](publish/ghc-internals.pdf?raw=true), [lhs](src/ghc-internals.lhs))
