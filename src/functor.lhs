@@ -266,8 +266,8 @@ instance Functor (B r) where
 
 . . .
 
-[Data.Contravariant](https://hackage.haskell.org/package/base/docs/Data-Functor-Contravariant.html) \centering
---------------------
+[Data.Functor.Contravariant](https://hackage.haskell.org/package/base/docs/Data-Functor-Contravariant.html) \centering
+----------------------------
 
 > class Contravariant f where
 >   contramap :: (b -> a) -> f a -> f b
