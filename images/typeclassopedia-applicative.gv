@@ -1,0 +1,46 @@
+digraph {
+  node [shape=box];
+  Functor -> Applicative -> Monad;
+  Apply -> Applicative [color=grey];
+  Semigroup -> Apply [color=grey; constraint=false; style=dotted; arrowhead=none];
+  Applicative -> Alternative;
+  Monad -> MonadPlus [color=grey];
+  Monad -> MonadFix [color=grey];
+  Semigroup -> Monoid;
+  Monoid -> Applicative [constraint=false; style=dotted; arrowhead=none];
+  Monoid -> Category [color=grey; constraint=false; style=dotted; arrowhead=none];
+  Monoid -> Alternative [style=dotted; arrowhead=none];
+  Monoid -> MonadPlus [color=grey; style=dotted; arrowhead=none];
+  Category -> Arrow -> ArrowChoice [color=grey];
+  Arrow -> ArrowApply [color=grey];
+  Arrow -> ArrowLoop [color=grey];
+  Arrow -> ArrowZero -> ArrowPlus [color=grey];
+  {rank = same; Arrow; ArrowZero; ArrowPlus}
+  Monoid -> ArrowPlus [color=grey; style=dotted; arrowhead=none];
+  Monad -> ArrowApply [color=grey; style=bold, arrowhead=none];
+  Monoid -> Foldable [style=dotted; arrowhead=none];
+  Monoid -> Monad [style=dotted; arrowhead=none];
+  Applicative -> Traversable [style=dotted; arrowhead=none];
+  Foldable -> Traversable;
+  Functor -> Traversable;
+  Functor -> Comonad [color=grey];
+
+  Apply [color=grey, fontcolor=grey];
+  Comonad [color=grey, fontcolor=grey];
+  Category [color=grey, fontcolor=grey];
+  Arrow [color=grey, fontcolor=grey];
+  ArrowZero [color=grey, fontcolor=grey];
+  ArrowPlus [color=grey, fontcolor=grey];
+  ArrowApply [color=grey, fontcolor=grey];
+  ArrowChoice [color=grey, fontcolor=grey];
+  ArrowLoop [color=grey, fontcolor=grey];
+  MonadFix [color=grey, fontcolor=grey];
+  MonadPlus [color=grey, fontcolor=grey];
+
+  Semigroup [color=forestgreen; penwidth=2];
+  Monoid [color=forestgreen; penwidth=2];
+  Foldable [color=forestgreen; penwidth=2];
+  Functor [color=forestgreen; penwidth=2];
+  Applicative [color=firebrick; penwidth=2];
+}
+
