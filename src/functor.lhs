@@ -397,7 +397,7 @@ Can this be made into `Functor`? \centering
 ```
 
 ```haskell
--- Want: \_ \ :: a -> r
+-- Want: \_ \ :: r
 ```
 
 . . .
