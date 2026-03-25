@@ -116,38 +116,34 @@ Intuition {.fragile}
 \lstset{style=highlight}
 ```
 
-. . .
-
 ::: columns
 :::: {.column width=50%}
+
+. . .
 
 Container \centering
 ---------
 
 . . .
 
+:::::: incremental
+
 - `fmap :: (a -> b) -> f a -> f b`  
   applies function to each element
   inside of container
 
-. . .
-
 - `pure :: a -> f a`  
   creates singleton container
-
-. . .
 
 - `(<*>) :: f (a -> b) -> f a -> f b`  
   applies container of functions
   to container of values
 
-. . .
-
 - `Maybe a` container with 0 or 1 elements
 
-. . .
-
 - `[a]` list of arbitrary length
+
+::::::
 
 ::::
 :::: {.column width=50%}
@@ -159,44 +155,32 @@ Computation context \centering
 
 . . .
 
+:::::: incremental
+
 - `fmap :: (a -> b) -> f a -> f b`  
   applies function to value *in context*
   without changing the context
 
-. . .
-
 - `pure :: a -> f a`  
   wraps value into *effect-free* context
-
-. . .
 
 - `(<*>) :: f (a -> b) -> f a -> f b`  
   applies function *in context* to value *in context*
   *combining* results of computations
 
-. . .
-
 - `Maybe a` computation with failure
-
-. . .
 
 - `[a]` non-deterministic computation
 
-. . .
-
 - `Either e a` computation with error
-
-. . .
 
 - `(e, a)` writer, computation with output
 
-. . .
-
 - `e -> a` reader, computation with input
 
-. . .
-
 - `IO a` computation with side-effects
+
+::::::
 
 ::::
 :::
