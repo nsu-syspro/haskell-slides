@@ -76,16 +76,16 @@ fmap2 g fa fb = _ (fmap g fa) fb
 
 . . .
 
-We can't! `Functor` is too weak \centering
--------------------------------
+We can't! `Functor` is too weak! \centering
+--------------------------------
 
 ::::
 :::: {.column width=50%}
 
 . . .
 
-[Data.Applicative](https://hackage.haskell.org/package/base/docs/Data-Applicative.html) \centering
-------------------
+[Control.Applicative](https://hackage.haskell.org/package/base/docs/Control-Applicative.html) \centering
+---------------------
 
 . . .
 
@@ -196,6 +196,8 @@ Applicative laws {.fragile}
 Identity \centering
 --------
 
+\vspace{-0.5em}
+
 ```{.haskell style=small}
 pure id <*> v = v
 ```
@@ -206,6 +208,8 @@ pure id <*> v = v
 
 Homomorphism \centering
 ------------
+
+\vspace{-0.5em}
 
 ```{.haskell style=small}
 pure f <*> pure x = pure (f x)
@@ -218,6 +222,8 @@ pure f <*> pure x = pure (f x)
 Interchange \centering
 -----------
 
+\vspace{-0.5em}
+
 ```{.haskell style=small}
 u <*> pure y = pure (\f -> f y) <*> u
 ```
@@ -229,6 +235,8 @@ u <*> pure y = pure (\f -> f y) <*> u
 Composition \centering
 -----------
 
+\vspace{-0.5em}
+
 ```{.haskell style=small}
 u <*> (v <*> w) = pure (.) <*> u <*> v <*> w
 ```
@@ -239,6 +247,8 @@ u <*> (v <*> w) = pure (.) <*> u <*> v <*> w
 
 Functor \centering
 -------
+
+\vspace{-0.5em}
 
 ```{.haskell style=small}
 fmap f x = pure f <*> x
@@ -274,6 +284,109 @@ combined into single `pure f`{style=highlight} in the beginning
 . . .
 
 As well as ensure that `pure`{style=highlight} deserves its name
+
+::::
+:::
+
+Applicative list {.fragile}
+================
+
+. . .
+
+There are two ways to implement applicative for list \centering
+----------------------------------------------------
+
+. . .
+
+\centering
+
+`[(+2),(*2)] <*> [1,2,3] = ?`{.haskell}
+
+. . .
+
+::: columns
+:::: {.column width=50%}
+
+Container \centering
+---------
+
+. . .
+
+```haskell
+     [(+2),(*2)] <*> [1,2,3]
+   = zipWith ($) [(+2),(*2)] [1,2,3]
+   = [3,4]
+```
+
+::::
+:::: {.column width=50%}
+
+. . .
+
+Non-deterministic computation \centering
+-----------------------------
+
+. . .
+
+```haskell
+    [(+2),(*2)] <*> [1,2,3]
+    (+2) <$> [1,2,3] ++ (*2) <$> [1,2,3]
+  = [3,4,5,2,4,6]
+```
+
+::::
+:::
+
+. . .
+
+::: columns
+:::: {.column width=50%}
+
+[Control.Applicative.ZipList](https://hackage-content.haskell.org/package/base/docs/Control-Applicative.html#t:ZipList) \centering
+-----------------------------
+
+```haskell
+instance Applicative ZipList where
+  ZipList fs <*> ZipList xs = 
+            ZipList (zipWith ($) fs xs)
+```
+
+::::
+:::: {.column width=50%}
+
+. . .
+
+Default for lists \phantom{p}\centering
+-----------------
+
+```haskell
+instance Applicative [] where
+  fs <*> xs = [ f x | f <- fs, x <- xs ]
+
+```
+
+::::
+:::
+
+\vspace{-1em}
+
+. . .
+
+::: columns
+:::: {.column width=50%}
+
+```haskell
+  pure :: a -> ZipList a
+  pure x = ZipList (repeat x)
+```
+
+::::
+:::: {.column width=50%}
+
+```haskell
+  pure :: a -> [a]
+  pure x = [x]
+```
 
 ::::
 :::
