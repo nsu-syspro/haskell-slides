@@ -112,6 +112,10 @@ Minimal complete definition \centering
 Intuition {.fragile}
 =========
 
+```{=latex}
+\lstset{style=highlight}
+```
+
 . . .
 
 ::: columns
@@ -120,9 +124,7 @@ Intuition {.fragile}
 Container \centering
 ---------
 
-```{=latex}
-\lstset{style=highlight}
-```
+. . .
 
 - `fmap :: (a -> b) -> f a -> f b`  
   applies function to each element
@@ -139,6 +141,14 @@ Container \centering
   applies container of functions
   to container of values
 
+. . .
+
+- `Maybe a` container with 0 or 1 elements
+
+. . .
+
+- `[a]` list of arbitrary length
+
 ::::
 :::: {.column width=50%}
 
@@ -147,9 +157,7 @@ Container \centering
 Computation context \centering
 -------------------
 
-```{=latex}
-\lstset{style=highlight}
-```
+. . .
 
 - `fmap :: (a -> b) -> f a -> f b`  
   applies function to value *in context*
@@ -164,7 +172,31 @@ Computation context \centering
 
 - `(<*>) :: f (a -> b) -> f a -> f b`  
   applies function *in context* to value *in context*
-  *combining* results of computations from contexts
+  *combining* results of computations
+
+. . .
+
+- `Maybe a` computation with failure
+
+. . .
+
+- `[a]` non-deterministic computation
+
+. . .
+
+- `Either e a` computation with error
+
+. . .
+
+- `(e, a)` writer, computation with output
+
+. . .
+
+- `e -> a` reader, computation with input
+
+. . .
+
+- `IO a` computation with side-effects
 
 ::::
 :::
