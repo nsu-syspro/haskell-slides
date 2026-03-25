@@ -201,39 +201,6 @@ Computation context \centering
 ::::
 :::
 
-Examples {.fragile}
-========
-
-. . .
-
-Maybe \centering
------
-
-. . .
-
-Either \centering
-------
-
-. . .
-
-List \centering
-----
-
-. . .
-
-Writer monad \centering
-------------
-
-. . .
-
-Reader monad \centering
-------------
-
-. . .
-
-IO monad \centering
---------
-
 Applicative laws {.fragile}
 ================
 
@@ -320,6 +287,10 @@ where all `ai'`{style=highlight} perform effectful computation,
 and all effect-free computations are
 combined into single `pure f`{style=highlight} in the beginning
 
+. . .
+
+As well as ensure that `pure`{style=highlight} deserves its name
+
 ::::
 :::
 
@@ -334,7 +305,6 @@ Resources {.fragile}
 \centering
 \qrcode[height=3.5cm]{https://wiki.haskell.org/index.php?title=Typeclassopedia#Applicative}
 \vspace{1em}
-\small
 ```
 <https://wiki.haskell.org/index.php?title=Typeclassopedia#Applicative>
 ```{=latex}
@@ -349,7 +319,6 @@ Resources {.fragile}
 \centering
 \qrcode[height=3.5cm]{https://en.wikibooks.org/wiki/Haskell/Applicative_functors}
 \vspace{1em}
-\small
 ```
 <https://en.wikibooks.org/wiki/Haskell/Applicative_functors>
 ```{=latex}
