@@ -47,7 +47,7 @@ Alternative functor {.fragile}
 ::: columns
 :::: {.column width=54%}
 
-[Control.Applicative (Alternative)](https://hackage.haskell.org/package/base/docs/Control-Applicative-Alternative.html) \centering
+[Control.Applicative (Alternative)](https://hackage.haskell.org/package/base/docs/Control-Applicative.html#t:Alternative) \centering
 -----------------------------------
 
 . . .
