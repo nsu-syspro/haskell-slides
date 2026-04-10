@@ -304,6 +304,40 @@ Join laws \centering
 ::::
 :::
 
+Do-notation \centering
+===========
+
+. . .
+
+[Applicative](https://hackage-content.haskell.org/package/base/docs/Control-Applicative.html) \centering
+-------------
+
+```haskell
+                                  do e → e
+                       do { e; stmts } → e *> do { stmts }
+               do { let decls; stmts } → let decls in do { stmts }
+```
+
+. . .
+
+[Monad](https://hackage-content.haskell.org/package/base/docs/Control-Monad.html) \centering
+-------
+
+```haskell
+                  do { v <- e; stmts } → e >>= \v -> do { stmts }
+```
+
+. . .
+
+[MonadFail](https://hackage-content.haskell.org/package/base/docs/Control-Monad-Fail.html) \centering
+-----------
+
+```haskell
+             do { (x:xs) <- e; stmts } → case e of
+                                           (x:xs) -> do { stmts }
+                                           _      -> fail "pattern error"
+```
+
 Resources {.fragile}
 =========
 
