@@ -79,6 +79,8 @@ greet =
   -- in last putStrLn
 ```
 
+. . .
+
 We can't! `Applicative` is too weak! \centering
 --------------------------------
 
@@ -94,7 +96,7 @@ We can't! `Applicative` is too weak! \centering
 . . .
 
 > class Applicative m => Monad m where
->   (>>=)  :: m a -> (a -> m b) -> m a
+>   (>>=)  :: m a -> (a -> m b) -> m b
 
 . . .
 
