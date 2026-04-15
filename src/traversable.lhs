@@ -118,7 +118,7 @@ Intuition \centering
 :::
 
 
-Applicative laws {.fragile}
+Traversable laws {.fragile}
 ================
 
 ::: columns
@@ -169,22 +169,22 @@ In Haskell this law can be derived from other two due to parametricity!
 . . .
 
 ```haskell
-newtype Identity a =
-          Identity { runIdentity :: a }
+  newtype Identity a =
+    Identity { runIdentity :: a }
 ```
 
 \vspace{-1em}
 
 . . .
 
-[Data.Functor.Const](https://hackage.haskell.org/package/base/docs/Data-Functor-Const.html) \centering
+[Data.Functor.Compose](https://hackage-content.haskell.org/package/base/docs/Data-Functor-Compose.html) \centering
 ------------------
 
 . . .
 
 ```haskell
-newtype Const a b  =
-             Const { getConst :: a }
+  newtype Compose f g a =
+    Compose { getCompose :: f (g a) }
 ```
 
 \vspace{-1em}
