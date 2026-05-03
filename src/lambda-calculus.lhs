@@ -123,7 +123,7 @@ $\lam{x}{x}$
   ]
 
   \node {$\lambda x$}
-    child {node {x}
+    child {node {$x$}
     };
 
 \end{tikzpicture}
@@ -144,14 +144,14 @@ $(\lam{x}{x x})(\lam{y}{y y})$
   \node {@}
     child {node {$\lambda x$}
       child {node {@}
-        child {node {x}}
-        child {node {x}}
+        child {node {$x$}}
+        child {node {$x$}}
       }
     }
     child {node {$\lambda y$}
       child {node {@}
-        child {node {y}}
-        child {node {y}}
+        child {node {$y$}}
+        child {node {$y$}}
       }
     };
 
@@ -171,10 +171,10 @@ $\lam{f}{\lam{x}{f (f x)}}$
   \node {$\lambda f$}
     child {node {$\lambda x$}
       child {node {@}
-        child {node {f}}
+        child {node {$f$}}
         child {node {@}
-          child {node {f}}
-          child {node {x}}
+          child {node {$f$}}
+          child {node {$x$}}
         }
       }
     };
@@ -257,11 +257,11 @@ $\lam{\bvx{x}}{(\lam{\bvy{y}}{\bvy{y} \bvx{x}}) \fv{z}}$
     child {node {@}
       child {node (ly) {$\lambda \bvy{y}$}
         child {node {@}
-          child {node (y) {\bvy{y}}}
-          child {node (x) {\bvx{x}}}
+          child {node (y) {$\bvy{y}$}}
+          child {node (x) {$\bvx{x}$}}
         }
       }
-      child {node {\fv{z}}}
+      child {node {$\fv{z}$}}
     };
 
   \draw[->,CtpRed] (x) to[bend right=80,distance=5em] (lx);
